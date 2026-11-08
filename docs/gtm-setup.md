@@ -108,3 +108,4 @@ Once GTM is published and initial test clicks are performed:
    - `whatsapp_click` (Primary lead event)
    - `phone_click` (Direct phone consultation call)
    - `form_submit` (Appointment request form submission)
+

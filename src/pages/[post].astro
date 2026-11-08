@@ -11,10 +11,12 @@ import { site } from '@/data/site';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  return posts.map((post) => ({
-    params: { post: post.id || post.slug },
-    props: { post },
-  }));
+  return posts
+    .filter((post) => !post.data.draft)
+    .map((post) => ({
+      params: { post: post.id || post.slug },
+      props: { post },
+    }));
 }
 
 interface Props {
@@ -56,7 +58,49 @@ const faqSchema =
       }
     : null;
 
-const schemaGraph = [blogPostingSchema, ...(faqSchema ? [faqSchema] : [])];
+const breadcrumbSchema = {
+  '@type': 'BreadcrumbList',
+  '@id': `${fullUrl}#breadcrumb`,
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: `${site.domain}/`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Medical Blog',
+      item: `${site.domain}/blogs/`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: post.data.title,
+      item: fullUrl,
+    },
+  ],
+};
+
+const videoSchema = post.data.youtubeId
+  ? {
+      '@type': 'VideoObject',
+      '@id': `${fullUrl}#video`,
+      name: post.data.title,
+      description: post.data.metaDescription,
+      thumbnailUrl: `https://i.ytimg.com/vi/${post.data.youtubeId}/hqdefault.jpg`,
+      uploadDate: `${post.data.publishDate}T10:00:00+05:30`,
+      embedUrl: `https://www.youtube-nocookie.com/embed/${post.data.youtubeId}`,
+    }
+  : null;
+
+const schemaGraph = [
+  blogPostingSchema,
+  breadcrumbSchema,
+  ...(faqSchema ? [faqSchema] : []),
+  ...(videoSchema ? [videoSchema] : []),
+];
 ---
 
 <Base

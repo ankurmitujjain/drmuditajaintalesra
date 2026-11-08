@@ -21,6 +21,7 @@ const services = defineCollection({
     youtubeId: z.string().optional(),
     order: z.number().default(99),
     draft: z.boolean().default(false),
+    reviewed: z.boolean().default(true),
   }),
 });
 
@@ -43,6 +44,7 @@ const blog = defineCollection({
     ).default([]),
     youtubeId: z.string().optional(),
     draft: z.boolean().default(false),
+    reviewed: z.boolean().default(true),
   }),
 });
 

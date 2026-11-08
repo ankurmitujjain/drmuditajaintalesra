@@ -31,3 +31,4 @@ User-agent: Bingbot
 Allow: /
 
 Sitemap: https://drmuditajaintalesra.com/sitemap-index.xml
+
