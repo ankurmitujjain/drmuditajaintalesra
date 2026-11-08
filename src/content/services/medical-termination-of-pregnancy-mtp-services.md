@@ -10,7 +10,7 @@ keywords:
   - legal mtp doctor bhopal
   - pregnancy termination bhopal
   - cac trained gynecologist bhopal
-heroImage: /images/clinic-exterior.webp
+heroImage: /images/medical-termination-of-pregnancy-mtp-services.webp
 order: 7
 faqs:
   - question: Is Medical Termination of Pregnancy legal in Bhopal, India?
