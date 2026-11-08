@@ -146,19 +146,22 @@ const defaultSchema = {
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(defaultSchema)} />
 
-    <!-- GA4 Tag -->
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${site.analytics.ga4Id}`}></script>
-    <script is:inline define:vars={{ ga4Id: site.analytics.ga4Id }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', ga4Id);
+    <!-- Google Tag Manager -->
+    <script is:inline define:vars={{ gtmId: site.analytics.gtmId }}>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer',gtmId);
     </script>
+    <!-- End Google Tag Manager -->
   </head>
 
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${site.analytics.gtmId}`}
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!-- Top Navigation Header -->
     <header class="site-header">
       <div class="top-bar">
@@ -273,14 +276,14 @@ const defaultSchema = {
         class="msb-wa"
         target="_blank"
         rel="noopener"
-        onclick="if(window.gtag)gtag('event','whatsapp_click',{'page_path':window.location.pathname,'cta_position':'mobile_sticky_bottom'});"
+        data-cta-pos="mobile_sticky_bottom"
       >
         <span>💬 WhatsApp</span>
       </a>
       <a
         href={`tel:${site.nap.phones.callRaw}`}
         class="msb-call"
-        onclick="if(window.gtag)gtag('event','phone_click',{'page_path':window.location.pathname,'cta_position':'mobile_sticky_bottom'});"
+        data-cta-pos="mobile_sticky_bottom"
       >
         <span>📞 Call Clinic</span>
       </a>
@@ -291,14 +294,59 @@ const defaultSchema = {
       class="desktop-floating-wa"
       target="_blank"
       rel="noopener"
-      onclick="if(window.gtag)gtag('event','whatsapp_click',{'page_path':window.location.pathname,'cta_position':'desktop_floating_corner'});"
       aria-label="Chat on WhatsApp"
+      data-cta-pos="desktop_floating_corner"
     >
       <svg width="22" height="22" viewBox="0 0 24 24" fill="#ffffff">
         <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
       </svg>
       <span>Consult on WhatsApp</span>
     </a>
+
+    <!-- Universal dataLayer tracking script -->
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: 'whatsapp_click',
+              page_path: window.location.pathname,
+              cta_position: el.getAttribute('data-cta-pos') || (el.classList.contains('desktop-floating-wa') ? 'floating_desktop' : (el.classList.contains('msb-wa') ? 'mobile_bar' : 'body_cta'))
+            });
+          });
+        });
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: 'phone_click',
+              page_path: window.location.pathname,
+              cta_position: el.getAttribute('data-cta-pos') || (el.classList.contains('msb-call') ? 'mobile_bar' : 'body_phone')
+            });
+          });
+        });
+        document.querySelectorAll('a[href*="maps.google"], a[href*="/directions"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: 'directions_click',
+              page_path: window.location.pathname
+            });
+          });
+        });
+        document.querySelectorAll('form').forEach(function(form) {
+          form.addEventListener('submit', function() {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: 'form_submit',
+              page_path: window.location.pathname,
+              form_id: form.getAttribute('id') || form.getAttribute('name') || 'appointment_form'
+            });
+          });
+        });
+      });
+    </script>
   </body>
 </html>
 

@@ -110,6 +110,7 @@ export const site = {
   },
 
   analytics: {
+    gtmId: "GTM-KTNGJW3Z",
     ga4Id: "G-R45CXSB5JJ",
   },
 };
