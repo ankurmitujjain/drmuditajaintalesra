@@ -11,6 +11,7 @@ keywords:
   - cyst in ovary doctor bhopal
   - अंडाशय में गांठ का इलाज
 heroImage: /images/ovarian-cysts.webp
+heroAlt: "Diagram of the uterus, fallopian tubes and ovaries with a small cyst on the right ovary"
 order: 13
 relatedServices:
   - endometriosis-treatment

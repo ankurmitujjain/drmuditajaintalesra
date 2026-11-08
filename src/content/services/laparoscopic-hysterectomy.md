@@ -11,6 +11,7 @@ keywords:
   - बच्चेदानी का ऑपरेशन भोपाल
   - hysterectomy doctor bhopal
 heroImage: /images/laparoscopic-hysterectomy.webp
+heroAlt: "Surgeons in a modern operating theatre with a laparoscopy tower"
 order: 14
 relatedServices:
   - uterine-fibroids

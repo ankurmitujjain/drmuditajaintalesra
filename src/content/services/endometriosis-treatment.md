@@ -11,6 +11,7 @@ keywords:
   - endometriosis laparoscopy bhopal
   - pelvic pain treatment bhopal
 heroImage: /images/endometriosis-treatment.webp
+heroAlt: "Woman resting on a sofa with a hot water bag for period pain relief"
 order: 12
 relatedServices:
   - ovarian-cysts

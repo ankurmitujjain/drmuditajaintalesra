@@ -11,6 +11,7 @@ keywords:
   - vaginal tightening bhopal
   - intimate wellness doctor bhopal
 heroImage: /images/cosmetic-gynecology.webp
+heroAlt: "Abstract lotus illustration symbolising feminine wellbeing"
 order: 4
 faqs:
   - question: What is the difference between aesthetic and functional cosmetic gynecology?

@@ -11,6 +11,7 @@ keywords:
   - pcos pregnancy bhopal
   - पीसीओडी का इलाज भोपाल
 heroImage: /images/pcos-pcod-treatment.webp
+heroAlt: "Young Indian woman relaxing at home with tea, fruit and a yoga mat, representing PCOS lifestyle care"
 order: 11
 relatedServices:
   - fertility-services

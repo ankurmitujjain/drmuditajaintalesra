@@ -11,6 +11,7 @@ const services = defineCollection({
     directAnswer: z.string(),
     keywords: z.array(z.string()).default([]),
     heroImage: z.string().default('/images/clinic-exterior.webp'),
+    heroAlt: z.string().optional(),
     faqs: z.array(
       z.object({
         question: z.string(),

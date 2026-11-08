@@ -126,6 +126,18 @@ const schemaGraph = [
       <span class="badge">Specialist Gynecology Care · Bhopal</span>
       <h1>{service.data.h1}</h1>
 
+      <figure class="service-hero">
+        <img
+          src={service.data.heroImage}
+          alt={service.data.heroAlt ?? `Illustration for ${service.data.title}`}
+          width="1376"
+          height="768"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </figure>
+
       <!-- AEO 40-60 Word Direct-Answer Snippet Box -->
       <div class="direct-answer-box">
         <p class="direct-answer-text">{service.data.directAnswer}</p>
@@ -208,6 +220,19 @@ const schemaGraph = [
     line-height: 1.25;
     color: #172b54;
     margin-bottom: 20px;
+  }
+  .service-hero {
+    margin: 0 0 24px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 1376 / 768;
+    background: #f6efe8;
+  }
+  .service-hero img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .direct-answer-box {
     background: #f8fafc;

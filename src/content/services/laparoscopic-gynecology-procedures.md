@@ -11,6 +11,7 @@ keywords:
   - laparoscopic myomectomy bhopal
   - ovarian cyst laparoscopy bhopal
 heroImage: /images/laparoscopic-gynecology-procedures.webp
+heroAlt: "Laparoscope, grasper, scissors and trocar ports on a sterile surgical drape"
 youtubeId: 58-cMewGz2k
 order: 1
 faqs:

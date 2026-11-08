@@ -11,6 +11,7 @@ keywords:
   - normal delivery doctor bhopal
   - antenatal checkup gulmohar bhopal
 heroImage: /images/obstetrics-services.webp
+heroAlt: "Pregnant Indian woman smiling and holding her baby bump by a sunlit window"
 youtubeId: tG9c0uY3a2o
 order: 2
 faqs:

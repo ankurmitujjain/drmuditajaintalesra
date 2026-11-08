@@ -11,6 +11,7 @@ keywords:
   - रसौली का इलाज भोपाल
   - fibroid surgery without removing uterus
 heroImage: /images/uterine-fibroids.webp
+heroAlt: "Illustration of the uterus showing fibroids in different positions"
 order: 10
 relatedServices:
   - laparoscopic-hysterectomy

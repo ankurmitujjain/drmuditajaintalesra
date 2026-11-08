@@ -11,6 +11,7 @@ keywords:
   - postmenopausal bleeding bhopal
   - रजोनिवृत्ति का इलाज
 heroImage: /images/menopause-care.webp
+heroAlt: "Indian woman in her fifties walking in a park in the morning, healthy and active"
 order: 15
 relatedServices:
   - cervical-health-services

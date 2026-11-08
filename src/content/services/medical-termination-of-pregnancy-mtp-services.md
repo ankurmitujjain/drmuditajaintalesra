@@ -11,6 +11,7 @@ keywords:
   - pregnancy termination bhopal
   - cac trained gynecologist bhopal
 heroImage: /images/medical-termination-of-pregnancy-mtp-services.webp
+heroAlt: "Private and confidential consultation desk with a folder and a glass of water"
 order: 7
 faqs:
   - question: Is Medical Termination of Pregnancy legal in Bhopal, India?

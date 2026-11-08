@@ -11,6 +11,7 @@ keywords:
   - vbac bhopal
   - नॉर्मल डिलीवरी भोपाल
 heroImage: /images/painless-normal-delivery.webp
+heroAlt: "Mother holding her newborn baby with the father beside her in a hospital room"
 order: 16
 relatedServices:
   - obstetrics-services
