@@ -32,6 +32,12 @@ http://drmuditajaintalesra.com/*       https://drmuditajaintalesra.com/:splat  3
 /comments/feed/*       /blogs/          301
 /comments/feed         /blogs/          301
 
+# Policies 301
+/terms/                   /booking-policy/  301
+/terms                    /booking-policy/  301
+/refund-policy/           /booking-policy/  301
+/refund-policy            /booking-policy/  301
+
 # Short links (302)
 /whatsapp              https://wa.me/919993895629?text=Hello%20Dr.%20Mudita%2C%20I%20found%20you%20via%20your%20website.%20I%20want%20to%20book%20an%20appointment.  302
 /call                  tel:+918319775863  302

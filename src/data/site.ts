@@ -57,6 +57,32 @@ export const site = {
       "Urogynaecology & Pelvic Floor Repair",
     ],
     trainership: "National Master Trainer for HPV Vaccination, Comprehensive Abortion Care (CAC), and Subdermal Contraceptive Implants",
+    additionalTraining: [
+      "Fellowship in Minimal Access Surgery (FMAS)",
+      "Master's in Reconstructive & Cosmetic Gynaecology",
+      "FOGSI-recognised Infertility Training",
+      "FOGSI-recognised Ultrasound (USG) Training",
+    ],
+    societyRoles: [
+      "Past Secretary, Bhopal Obstetrics & Gynaecological Society (BOGS)",
+      "Past Treasurer, BOGS (2019–20)",
+      "Past Joint Secretary, Bhopal Menopause Society (2019)",
+      "Executive Member, AMPOGS (Association of MP Obstetric & Gynaecological Societies, 2015)",
+    ],
+    memberships: [
+      "WALS (World Association of Laparoscopic Surgeons) - Life Member",
+      "IMS (Indian Menopause Society) - Life Member",
+      "BOGS (Bhopal Obstetrics & Gynaecological Society) - Life Member",
+      "IMA (Indian Medical Association) - Life Member",
+      "ICOG (Indian College of Obstetricians & Gynaecologists) - Fellow (FICOG)",
+      "FOGSI (Federation of Obstetric and Gynaecological Societies of India)",
+    ],
+    facultyRoles: [
+      "Faculty for FORCE PG Update (2015, 2019)",
+      "Faculty on Medical Learning Hub (Courses: Clinical Innovations in OBG, Rainbow of OBG & Endoscopy)",
+      "Invited Faculty and Speaker across National & State OBG CMEs",
+    ],
+    studentCommunityUrl: "https://chat.whatsapp.com/GJb5L8SBijnBilP0eubGrR",
     awards: [
       "ICOG Convocation 2022 Felicitation for Academic Excellence",
       "Naari Astitva Award for Dedicated Women Healthcare",
@@ -107,6 +133,7 @@ export const site = {
     facebook: "https://www.facebook.com/MuditaJainTalesra",
     practo: "https://www.practo.com/bhopal/doctor/mudita-jain-gynecologist-obstetrician",
     justdial: "https://www.justdial.com/Bhopal/Dr--Mudita-Jain-Gulmohar-Colony/0755PX755-X755-140207162354-Y8A3_BZDET?via=scode",
+    medicalLearningHub: "https://medicallearninghub.com/faculty/prof-dr-mudita-jain-talesra",
   },
 
   analytics: {

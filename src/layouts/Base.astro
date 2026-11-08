@@ -97,11 +97,18 @@ const defaultSchema = {
         name: d.university || d.institution || d.college,
       })),
       award: site.doctor.awards,
+      memberOf: site.doctor.memberships.map((m) => ({
+        '@type': 'Organization',
+        name: m,
+      })),
       sameAs: [
         site.socials.youtubePatient,
+        site.socials.youtubeStudent,
         site.socials.instagram,
         site.socials.facebook,
         site.socials.practo,
+        site.socials.justdial,
+        site.socials.medicalLearningHub,
       ],
     },
     {
@@ -262,9 +269,7 @@ const defaultSchema = {
           <div class="legal-links">
             <a href="/privacy-policy/">Privacy Policy</a>
             <span>·</span>
-            <a href="/terms/">Terms</a>
-            <span>·</span>
-            <a href="/refund-policy/">Refund Policy</a>
+            <a href="/booking-policy/">Booking & Telemedicine Policy</a>
             <span>·</span>
             <a href="/how-to-book/">How to Book</a>
             <span>·</span>

@@ -1,6 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
 import { site } from '@/data/site';
 
 const title = "Privacy Policy | Dr. Mudita Jain Talesra Bhopal";
@@ -66,6 +67,9 @@ const metaDescription = "Privacy policy for Dr. Mudita Jain Talesra's medical pr
           Email: <a href={`mailto:${site.nap.email}`}>{site.nap.email}</a><br />
           Phone: {site.nap.phones.call}
         </p>
+        <div style="margin-top: 15px;">
+          <WhatsAppCTA title="Privacy Question" question="Hello, I have a question regarding data privacy." slug="privacy-policy" />
+        </div>
       </section>
     </div>
   </div>
