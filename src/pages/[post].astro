@@ -1,0 +1,302 @@
+---
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
+import CallCTA from '@/components/CallCTA.astro';
+import FAQ from '@/components/FAQ.astro';
+import AuthorBox from '@/components/AuthorBox.astro';
+import YouTube from '@/components/YouTube.astro';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { site } from '@/data/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts
+    .filter((post) => !post.data.draft)
+    .map((post) => ({
+      params: { post: post.id || post.slug },
+      props: { post },
+    }));
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const fullUrl = `${site.domain}/${post.slug}/`;
+
+const blogPostingSchema = {
+  '@type': 'BlogPosting',
+  '@id': `${fullUrl}#article`,
+  headline: post.data.title,
+  description: post.data.metaDescription,
+  image: post.data.image.startsWith('http') ? post.data.image : `${site.domain}${post.data.image}`,
+  datePublished: `${post.data.publishDate}T10:00:00+05:30`,
+  dateModified: `${post.data.updatedDate || post.data.publishDate}T14:00:00+05:30`,
+  author: { '@id': `${site.domain}/#doctor` },
+  publisher: { '@id': `${site.domain}/#clinic` },
+  isPartOf: { '@id': `${fullUrl}#webpage` },
+  inLanguage: 'en-IN',
+};
+
+const faqSchema =
+  post.data.faqs.length > 0
+    ? {
+        '@type': 'FAQPage',
+        '@id': `${fullUrl}#faq`,
+        mainEntity: post.data.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: f.answer,
+          },
+        })),
+      }
+    : null;
+
+const breadcrumbSchema = {
+  '@type': 'BreadcrumbList',
+  '@id': `${fullUrl}#breadcrumb`,
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: `${site.domain}/`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Medical Blog',
+      item: `${site.domain}/blogs/`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: post.data.title,
+      item: fullUrl,
+    },
+  ],
+};
+
+const videoSchema = post.data.youtubeId
+  ? {
+      '@type': 'VideoObject',
+      '@id': `${fullUrl}#video`,
+      name: post.data.title,
+      description: post.data.metaDescription,
+      thumbnailUrl: `https://i.ytimg.com/vi/${post.data.youtubeId}/hqdefault.jpg`,
+      uploadDate: `${post.data.publishDate}T10:00:00+05:30`,
+      embedUrl: `https://www.youtube-nocookie.com/embed/${post.data.youtubeId}`,
+    }
+  : null;
+
+const schemaGraph = [
+  blogPostingSchema,
+  breadcrumbSchema,
+  ...(faqSchema ? [faqSchema] : []),
+  ...(videoSchema ? [videoSchema] : []),
+];
+---
+
+<Base
+  title={post.data.metaTitle}
+  metaDescription={post.data.metaDescription}
+  canonicalUrl={fullUrl}
+  ogImage={post.data.image.startsWith('http') ? post.data.image : `${site.domain}${post.data.image}`}
+  schema={schemaGraph}
+  pageType="article"
+>
+  <div class="blog-post-page container">
+    <Breadcrumbs
+      crumbs={[
+        { name: "Medical Blog", url: "/blogs/" },
+        { name: post.data.title, url: `/${post.slug}/` },
+      ]}
+    />
+
+    <article class="post-article">
+      <header class="post-header">
+        <span class="badge">Gynecology Educational Guide · Bhopal</span>
+        <h1>{post.data.title}</h1>
+        <div class="post-meta">
+          <span>📅 Published: {post.data.publishDate}</span>
+          {post.data.updatedDate && <span>· 🔄 Medically Reviewed: {post.data.updatedDate}</span>}
+          <span>· ✍️ Dr. Mudita Jain Talesra (MS, FMAS, FICOG)</span>
+        </div>
+
+        <!-- AEO 40-60 Word Direct-Answer Snippet Box -->
+        <div class="direct-answer-box">
+          <p class="direct-answer-text">{post.data.directAnswer}</p>
+          <div class="direct-answer-meta">
+            <span>🩺 Medically reviewed by <strong>{site.doctor.name}</strong> · MPMC Reg. {site.doctor.registrationNumber}</span>
+          </div>
+        </div>
+      </header>
+
+      {post.data.youtubeId && (
+        <YouTube youtubeId={post.data.youtubeId} title={post.data.title} />
+      )}
+
+      <!-- Main Article Content -->
+      <div class="post-body">
+        <Content />
+      </div>
+
+      <!-- In-Article Consultation CTA -->
+      <div class="article-cta-box">
+        <h3>Have a Personal Medical Question?</h3>
+        <p>Connect with Dr. Mudita Jain Talesra on WhatsApp for prompt, confidential clinical guidance.</p>
+        <WhatsAppCTA title={post.data.title} question="I have a question regarding this article." slug={`${post.slug}-post`} />
+      </div>
+
+      <!-- FAQ Component & FAQPage Schema -->
+      {post.data.faqs.length > 0 && (
+        <FAQ faqs={post.data.faqs} title="Frequently Asked Questions" />
+      )}
+
+      <!-- Author Box with MPMC Credentials -->
+      <AuthorBox />
+
+      <!-- Back Link -->
+      <div class="back-link-box">
+        <a href="/blogs/">← Return to All Women's Health Articles</a>
+      </div>
+    </article>
+  </div>
+</Base>
+
+<style>
+  .blog-post-page {
+    padding: 30px 20px 60px 20px;
+    max-width: 860px;
+  }
+  .post-header {
+    margin-bottom: 30px;
+  }
+  .badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .post-header h1 {
+    font-size: 32px;
+    line-height: 1.3;
+    color: #172b54;
+    margin-bottom: 12px;
+  }
+  .post-meta {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 24px;
+  }
+
+  .direct-answer-box {
+    background: #f8fafc;
+    border-left: 4px solid #172b54;
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-top: 16px;
+  }
+  .direct-answer-text {
+    font-size: 16px;
+    line-height: 1.65;
+    color: #1e293b;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .direct-answer-meta {
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  /* Body Content */
+  .post-body {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #334155;
+    margin: 30px 0;
+  }
+  .post-body :global(h2) {
+    font-size: 22px;
+    color: #172b54;
+    margin: 34px 0 14px 0;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 6px;
+  }
+  .post-body :global(h3) {
+    font-size: 18px;
+    color: #172b54;
+    margin: 22px 0 10px 0;
+  }
+  .post-body :global(p) {
+    margin-bottom: 18px;
+  }
+  .post-body :global(ul),
+  .post-body :global(ol) {
+    margin-bottom: 20px;
+    padding-left: 24px;
+  }
+  .post-body :global(li) {
+    margin-bottom: 8px;
+  }
+  .post-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  .post-body :global(th),
+  .post-body :global(td) {
+    padding: 12px 14px;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+  }
+  .post-body :global(th) {
+    background: #172b54;
+    color: #ffffff;
+  }
+  .post-body :global(tr:nth-child(even)) {
+    background: #f8fafc;
+  }
+
+  .article-cta-box {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 24px;
+    text-align: center;
+    margin: 40px 0;
+  }
+  .article-cta-box h3 {
+    font-size: 20px;
+    color: #172b54;
+    margin-bottom: 8px;
+  }
+  .article-cta-box p {
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 16px;
+  }
+
+  .back-link-box {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+  }
+  .back-link-box a {
+    font-weight: 700;
+    color: #172b54;
+  }
+</style>

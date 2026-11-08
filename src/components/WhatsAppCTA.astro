@@ -1,0 +1,62 @@
+---
+interface Props {
+  title: string;
+  question: string;
+  slug?: string;
+  orderCode?: string;
+  className?: string;
+}
+
+const { title, question, slug, orderCode, className = "" } = Astro.props;
+
+// Compute clean page/service tracking code
+const pageSlug = slug || Astro.url.pathname.replace(/^\/|\/$/g, '') || 'general';
+const trackingTag = orderCode ? `[${orderCode}]` : `[web-${pageSlug}]`;
+
+// If question already contains a bracketed tag, preserve it; otherwise append trackingTag
+const cleanMsg = question.includes('[')
+  ? question
+  : `Hello Dr. Mudita, I read about ${title} on your website. ${question} ${trackingTag}`;
+
+const encoded = encodeURIComponent(cleanMsg);
+const waUrl = `https://wa.me/919993895629?text=${encoded}`;
+---
+
+<a
+  href={waUrl}
+  target="_blank"
+  rel="noopener"
+  class={`whatsapp-cta-btn ${className}`}
+  onclick="if(window.gtag)gtag('event','whatsapp_click',{'page_path':window.location.pathname,'cta_position':'inline_cta'});"
+>
+  <span class="icon">💬</span>
+  <span class="text">Consult on WhatsApp</span>
+</a>
+
+<style>
+  .whatsapp-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #25d366;
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    line-height: 1.2;
+    transition: background 0.2s ease, transform 0.15s ease;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.25);
+  }
+  .whatsapp-cta-btn:hover {
+    background: #20ba59;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+  }
+  .icon {
+    font-size: 18px;
+  }
+</style>
+

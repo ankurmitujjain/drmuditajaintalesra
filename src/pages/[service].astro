@@ -1,0 +1,372 @@
+---
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
+import CallCTA from '@/components/CallCTA.astro';
+import FAQ from '@/components/FAQ.astro';
+import AuthorBox from '@/components/AuthorBox.astro';
+import YouTube from '@/components/YouTube.astro';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { site } from '@/data/site';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services
+    .filter((service) => !service.data.draft)
+    .map((service) => ({
+      params: { service: service.id || service.slug },
+      props: { service },
+    }));
+}
+
+interface Props {
+  service: CollectionEntry<'services'>;
+}
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+
+const fullUrl = `${site.domain}/${service.slug}/`;
+
+const serviceSchema = {
+  '@type': 'MedicalWebPage',
+  '@id': `${fullUrl}#webpage`,
+  url: fullUrl,
+  name: service.data.title,
+  description: service.data.metaDescription,
+  reviewedBy: { '@id': `${site.domain}/#doctor` },
+  lastReviewed: '2026-11-08',
+  inLanguage: 'en-IN',
+  mainEntity: {
+    '@type': 'MedicalProcedure',
+    name: service.data.title,
+    procedureType: 'https://schema.org/SurgicalProcedure',
+    bodyLocation: 'Pelvic cavity',
+  },
+};
+
+const faqSchema =
+  service.data.faqs.length > 0
+    ? {
+        '@type': 'FAQPage',
+        '@id': `${fullUrl}#faq`,
+        mainEntity: service.data.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: f.answer,
+          },
+        })),
+      }
+    : null;
+
+const breadcrumbSchema = {
+  '@type': 'BreadcrumbList',
+  '@id': `${fullUrl}#breadcrumb`,
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: `${site.domain}/`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Clinical Services',
+      item: `${site.domain}/our-services/`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: service.data.title,
+      item: fullUrl,
+    },
+  ],
+};
+
+const videoSchema = service.data.youtubeId
+  ? {
+      '@type': 'VideoObject',
+      '@id': `${fullUrl}#video`,
+      name: service.data.title,
+      description: service.data.metaDescription,
+      thumbnailUrl: `https://i.ytimg.com/vi/${service.data.youtubeId}/hqdefault.jpg`,
+      uploadDate: '2026-11-08T10:00:00+05:30',
+      embedUrl: `https://www.youtube-nocookie.com/embed/${service.data.youtubeId}`,
+    }
+  : null;
+
+const schemaGraph = [
+  serviceSchema,
+  breadcrumbSchema,
+  ...(faqSchema ? [faqSchema] : []),
+  ...(videoSchema ? [videoSchema] : []),
+];
+---
+
+<Base
+  title={service.data.metaTitle}
+  metaDescription={service.data.metaDescription}
+  canonicalUrl={fullUrl}
+  ogImage={service.data.heroImage.startsWith('http') ? service.data.heroImage : `${site.domain}${service.data.heroImage}`}
+  schema={schemaGraph}
+  pageType="article"
+>
+  <div class="service-page container">
+    <Breadcrumbs
+      crumbs={[
+        { name: "Services", url: "/our-services/" },
+        { name: service.data.title, url: `/${service.slug}/` },
+      ]}
+    />
+
+    <header class="service-header">
+      <span class="badge">Specialist Gynecology Care · Bhopal</span>
+      <h1>{service.data.h1}</h1>
+
+      <figure class="service-hero">
+        <img
+          src={service.data.heroImage}
+          alt={service.data.heroAlt ?? `Illustration for ${service.data.title}`}
+          width="1376"
+          height="768"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </figure>
+
+      <!-- AEO 40-60 Word Direct-Answer Snippet Box -->
+      <div class="direct-answer-box">
+        <p class="direct-answer-text">{service.data.directAnswer}</p>
+        <div class="direct-answer-meta">
+          <span>🩺 Medically reviewed by <strong>{site.doctor.name}</strong> ({site.doctor.qualifications}) · MPMC Reg. {site.doctor.registrationNumber}</span>
+        </div>
+      </div>
+
+      <div class="header-ctas">
+        <WhatsAppCTA title={service.data.title} question="I would like to consult regarding this treatment." slug={service.slug} />
+        <CallCTA />
+      </div>
+    </header>
+
+    {service.data.youtubeId && (
+      <YouTube youtubeId={service.data.youtubeId} title={service.data.title} />
+    )}
+
+    <!-- Main Markdown Body -->
+    <div class="service-body">
+      <Content />
+    </div>
+
+    <!-- Middle In-Content CTA -->
+    <div class="middle-cta-box">
+      <h3>Need Individual Guidance on {service.data.title}?</h3>
+      <p>Consult directly with Dr. Mudita Jain Talesra at Mudita Women Health Care Center, Gulmohar Colony, Bhopal.</p>
+      <div class="middle-cta-buttons">
+        <WhatsAppCTA title={service.data.title} question="I would like to discuss treatment options." slug={`${service.slug}-mid`} />
+        <CallCTA label="Call: +91 83197 75863" />
+      </div>
+    </div>
+
+    <!-- Structured FAQ Component & FAQPage Schema -->
+    {service.data.faqs.length > 0 && (
+      <FAQ faqs={service.data.faqs} title={`Frequently Asked Questions: ${service.data.title}`} />
+    )}
+
+    <!-- Medically Reviewed Author Box -->
+    <AuthorBox />
+
+    <!-- Related Services Navigation -->
+    <div class="related-services-box">
+      <h3>Other Clinical Services in Bhopal</h3>
+      <div class="related-links">
+        <a href="/laparoscopic-gynecology-procedures/">Laparoscopic Surgery</a>
+        <a href="/obstetrics-services/">Obstetrics & Delivery Care</a>
+        <a href="/fertility-services/">Infertility & IUI Care</a>
+        <a href="/cosmetic-gynecology/">Cosmetic Gynecology</a>
+        <a href="/cervical-health-services/">Pap Smear & HPV Vaccine</a>
+        <a href="/vaginal-surgery-services/">Vaginal Prolapse Surgery</a>
+        <a href="/medical-termination-of-pregnancy-mtp-services/">Confidential MTP Services</a>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .service-page {
+    padding: 30px 20px 60px 20px;
+    max-width: 900px;
+  }
+  .service-header {
+    margin-bottom: 35px;
+  }
+  .badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .service-header h1 {
+    font-size: 34px;
+    line-height: 1.25;
+    color: #172b54;
+    margin-bottom: 20px;
+  }
+  .service-hero {
+    margin: 0 0 24px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 1376 / 768;
+    background: #f6efe8;
+  }
+  .service-hero img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .direct-answer-box {
+    background: #f8fafc;
+    border-left: 4px solid #172b54;
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .direct-answer-text {
+    font-size: 16px;
+    line-height: 1.65;
+    color: #1e293b;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .direct-answer-meta {
+    font-size: 13px;
+    color: #64748b;
+  }
+  .header-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  /* Body Content Typography */
+  .service-body {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #334155;
+    margin: 30px 0;
+  }
+  .service-body :global(h2) {
+    font-size: 24px;
+    color: #172b54;
+    margin: 36px 0 16px 0;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 8px;
+  }
+  .service-body :global(h3) {
+    font-size: 19px;
+    color: #172b54;
+    margin: 24px 0 12px 0;
+  }
+  .service-body :global(p) {
+    margin-bottom: 18px;
+  }
+  .service-body :global(ul),
+  .service-body :global(ol) {
+    margin-bottom: 20px;
+    padding-left: 24px;
+  }
+  .service-body :global(li) {
+    margin-bottom: 8px;
+  }
+  .service-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  .service-body :global(th),
+  .service-body :global(td) {
+    padding: 12px 14px;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+  }
+  .service-body :global(th) {
+    background: #172b54;
+    color: #ffffff;
+  }
+  .service-body :global(tr:nth-child(even)) {
+    background: #f8fafc;
+  }
+
+  /* Middle CTA */
+  .middle-cta-box {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 24px;
+    text-align: center;
+    margin: 40px 0;
+  }
+  .middle-cta-box h3 {
+    font-size: 20px;
+    color: #172b54;
+    margin-bottom: 8px;
+  }
+  .middle-cta-box p {
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 16px;
+  }
+  .middle-cta-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* Related Services */
+  .related-services-box {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #e2e8f0;
+  }
+  .related-services-box h3 {
+    font-size: 18px;
+    color: #172b54;
+    margin-bottom: 14px;
+  }
+  .related-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .related-links a {
+    background: #f1f5f9;
+    color: #172b54;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+  .related-links a:hover {
+    background: #e2e8f0;
+  }
+
+  @media (max-width: 600px) {
+    .service-header h1 {
+      font-size: 26px;
+    }
+  }
+</style>

@@ -1,0 +1,46 @@
+https://www.drmuditajaintalesra.com/*  https://drmuditajaintalesra.com/:splat  301!
+http://drmuditajaintalesra.com/*       https://drmuditajaintalesra.com/:splat  301!
+
+# Legacy WordPress & Author / Category stubs
+/our-patient/          /our-patients/   301
+/our-patient           /our-patients/   301
+/author/*              /about-us/       301
+/category/*            /blogs/          301
+
+# Sitemaps
+/sitemap.xml           /sitemap-index.xml  301
+/sitemap_index.xml     /sitemap-index.xml  301
+/post-sitemap.xml      /sitemap-index.xml  301
+/page-sitemap.xml      /sitemap-index.xml  301
+/author-sitemap.xml    /sitemap-index.xml  301
+/category-sitemap.xml  /sitemap-index.xml  301
+
+# Purged WordPress & Demo paths (410 Gone)
+/portfolio/*           /                410
+/portfolio-category/*  /                410
+/portfolio-sitemap.xml /                410
+/portfolio-category-sitemap.xml /       410
+/wp-admin/*            /                410
+/wp-content/*          /                410
+/wp-includes/*         /                410
+/wp-json/*             /                410
+/xmlrpc.php            /                410
+
+# Feeds
+/feed/*                /blogs/          301
+/feed                  /blogs/          301
+/comments/feed/*       /blogs/          301
+/comments/feed         /blogs/          301
+
+# Policies 301
+/terms/                   /booking-policy/  301
+/terms                    /booking-policy/  301
+/refund-policy/           /booking-policy/  301
+/refund-policy            /booking-policy/  301
+
+# Short links (302)
+/whatsapp              https://wa.me/919993895629?text=Hello%20Dr.%20Mudita%2C%20I%20found%20you%20via%20your%20website.%20I%20want%20to%20book%20an%20appointment.  302
+/directions            https://maps.google.com/?cid=17123718235604844238  302
+/review                https://g.page/r/CXwu68oQCV83EAE/review  302
+/youtube               https://www.youtube.com/@DrMuditaJainTalesra  302
+

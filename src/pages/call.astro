@@ -1,0 +1,19 @@
+---
+// HTML redirect for tel: scheme since Netlify HTTP redirects only support http(s) targets
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0; url=tel:+918319775863" />
+    <title>Connecting to Clinic Phone...</title>
+  </head>
+  <body>
+    <p>Connecting to Dr. Mudita Jain Talesra's clinic...</p>
+    <p>If your dialer does not open automatically, <a href="tel:+918319775863">click here to call +91 83197 75863</a>.</p>
+    <script>
+      window.location.href = "tel:+918319775863";
+    </script>
+  </body>
+</html>
+

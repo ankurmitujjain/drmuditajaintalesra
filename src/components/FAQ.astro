@@ -1,0 +1,93 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  faqs: FAQItem[];
+  title?: string;
+}
+
+const { faqs, title = "Frequently Asked Questions" } = Astro.props;
+---
+
+{faqs && faqs.length > 0 && (
+  <section class="faq-section">
+    <h2 class="faq-heading">{title}</h2>
+    <div class="faq-list">
+      {faqs.map((faq, idx) => (
+        <details class="faq-item" open={idx === 0}>
+          <summary class="faq-question">
+            <span>{faq.question}</span>
+            <span class="faq-toggle-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .faq-section {
+    margin: 40px 0;
+  }
+  .faq-heading {
+    font-size: 24px;
+    color: #172b54;
+    margin-bottom: 20px;
+    font-family: inherit;
+  }
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .faq-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+  .faq-item[open] {
+    border-color: #cbd5e1;
+  }
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #172b54;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+  .faq-toggle-icon {
+    font-size: 20px;
+    font-weight: 400;
+    color: #64748b;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] .faq-toggle-icon {
+    transform: rotate(45deg);
+  }
+  .faq-answer {
+    padding: 0 20px 16px 20px;
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .faq-answer p {
+    margin: 0;
+  }
+</style>
+

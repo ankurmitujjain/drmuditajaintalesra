@@ -1,0 +1,143 @@
+---
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
+import { getCollection } from 'astro:content';
+
+const blogs = (await getCollection('blog'))
+  .filter((b) => !b.data.draft)
+  .sort(
+    (a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
+  );
+
+const title = "Women's Health & Pregnancy Blog | Dr. Mudita Jain Talesra";
+const metaDescription = "Evidence-based articles on pregnancy, menstrual health, fertility and gynecological procedures by Dr. Mudita Jain Talesra, Bhopal. WhatsApp for queries.";
+---
+
+<Base title={title} metaDescription={metaDescription}>
+  <div class="page-container container">
+    <Breadcrumbs crumbs={[{ name: "Medical Blog", url: "/blogs/" }]} />
+
+    <header class="page-header text-center">
+      <span class="badge">Patient Education & Clinical Insights</span>
+      <h1>Women's Health & Pregnancy Medical Blog</h1>
+      <p class="lead">
+        Evidence-based medical articles authored and clinically reviewed by <strong>Dr. Mudita Jain Talesra (MS, FMAS, FICOG)</strong> in Bhopal.
+      </p>
+    </header>
+
+    <div class="blogs-grid">
+      {blogs.map((post) => (
+        <article class="blog-card">
+          <a href={`/${(post.id || post.slug)}/`} class="blog-img-link">
+            <img src={post.data.image} alt={post.data.title} width="360" height="200" loading="lazy" class="blog-card-img" />
+          </a>
+          <div class="blog-card-body">
+            <span class="blog-date">{post.data.publishDate} · Reviewed by Dr. Mudita Jain</span>
+            <h2 class="blog-card-title">
+              <a href={`/${(post.id || post.slug)}/`}>{post.data.title}</a>
+            </h2>
+            <p class="blog-card-snippet">{post.data.directAnswer.slice(0, 140)}...</p>
+            <a href={`/${(post.id || post.slug)}/`} class="read-more">Read Full Guide & FAQs →</a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Blog Hub Bottom WhatsApp CTA -->
+    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 30px; text-align: center; margin-top: 40px;">
+      <h3 style="color: #172b54; margin-bottom: 8px;">Have a Personal Question About Any Medical Topic?</h3>
+      <p style="color: #64748b; font-size: 15px; margin-bottom: 20px;">Connect directly with Dr. Mudita Jain Talesra on WhatsApp for confidential guidance.</p>
+      <WhatsAppCTA title="Women's Health Inquiries" question="Hello Dr. Mudita, I was reading your medical blog and have a personal query." slug="blogs" />
+    </div>
+  </div>
+</Base>
+
+<style>
+  .page-container {
+    padding: 30px 20px 60px 20px;
+  }
+  .page-header {
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .page-header h1 {
+    font-size: 34px;
+    color: #172b54;
+    margin-bottom: 10px;
+  }
+  .lead {
+    font-size: 16px;
+    color: #475569;
+  }
+
+  .blogs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+  }
+  .blog-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .blog-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  }
+  .blog-card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  .blog-card-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .blog-date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-bottom: 8px;
+  }
+  .blog-card-title {
+    font-size: 17px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  .blog-card-title a {
+    color: #172b54;
+  }
+  .blog-card-snippet {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    flex: 1;
+  }
+  .read-more {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0284c7;
+  }
+</style>

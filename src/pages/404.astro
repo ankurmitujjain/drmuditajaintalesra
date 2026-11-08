@@ -1,0 +1,117 @@
+---
+import Base from '@/layouts/Base.astro';
+import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
+
+const title = "Page Not Found (404) | Dr. Mudita Jain Talesra";
+const metaDescription = "The page you are looking for does not exist. Browse clinical services or consult Dr. Mudita Jain Talesra directly on WhatsApp.";
+---
+
+<Base title={title} metaDescription={metaDescription}>
+  <div class="page-container container text-center">
+    <div class="error-box">
+      <span class="error-code">404</span>
+      <h1>Page Not Found</h1>
+      <p class="lead">
+        The page you requested may have been moved, renamed, or is temporarily unavailable. We are here to help you get the medical information you need.
+      </p>
+
+      <div class="cta-actions">
+        <WhatsAppCTA title="Missing Page Inquiries" question="Hello Dr. Mudita, I arrived at a missing page and need assistance." slug="404-help" />
+        <a href="/" class="btn-home">Return to Homepage →</a>
+      </div>
+
+      <div class="quick-links">
+        <h3>Explore Key Clinical Services:</h3>
+        <div class="links-grid">
+          <a href="/laparoscopic-gynecology-procedures/">Laparoscopic Surgery</a>
+          <a href="/obstetrics-services/">Obstetrics & Pregnancy Care</a>
+          <a href="/fertility-services/">Infertility & IUI Care</a>
+          <a href="/cosmetic-gynecology/">Cosmetic Gynecology</a>
+          <a href="/cervical-health-services/">Pap Smear & HPV Vaccine</a>
+          <a href="/contact-us/">Contact & Directions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .page-container {
+    padding: 60px 20px 80px 20px;
+    max-width: 700px;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .error-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 50px 30px;
+  }
+  .error-code {
+    font-size: 72px;
+    font-weight: 800;
+    color: #172b54;
+    line-height: 1;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .error-box h1 {
+    font-size: 26px;
+    color: #1e293b;
+    margin-bottom: 14px;
+  }
+  .lead {
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 35px;
+  }
+  .btn-home {
+    display: inline-block;
+    background: #172b54;
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+  .quick-links {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 24px;
+  }
+  .quick-links h3 {
+    font-size: 14px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+  }
+  .links-grid a {
+    font-size: 13px;
+    font-weight: 600;
+    color: #172b54;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
+  .links-grid a:hover {
+    background: #e2e8f0;
+  }
+</style>
+

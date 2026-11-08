@@ -1,0 +1,304 @@
+---
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
+import CallCTA from '@/components/CallCTA.astro';
+import FAQ from '@/components/FAQ.astro';
+import { site } from '@/data/site';
+
+const title = "Dr. Mudita Jain Academy: Surgical Courses & OBG PG Mentorship";
+const metaDescription = "Academic surgical masterclasses, pelvic anatomy tutorials, and clinical PG viva prep for MBBS/MS/DNB residents led by former Professor & HOD Dr. Mudita Jain Talesra.";
+
+const courses = [
+  {
+    title: "Total Laparoscopic Hysterectomy (TLH) Masterclass",
+    desc: "Step-by-step retroperitoneal dissection, identifying the ureter at the pelvic brim, uterine artery ligation, and laparoscopic vault closure techniques.",
+    badge: "Surgical Video Course",
+    format: "Recorded (Google Classroom)",
+    orderCode: "course-tlh",
+  },
+  {
+    title: "OBG PG Resident Viva & Clinical Case Mentorship Batch",
+    desc: "Monthly interactive live batch covering high-yield obstetric cases (preeclampsia, GDM, IUGR), CTG traces, operative vaginal delivery, and OSCE stations.",
+    badge: "Live Monthly Batch",
+    format: "Live on Google Meet",
+    orderCode: "live-batch",
+  },
+  {
+    title: "Laparoscopic Myomectomy & Suturing Pearls",
+    desc: "Enucleation of deep intramural fibroids, vascular control, and multi-layered barbed/braided myometrial reconstruction.",
+    badge: "Advanced Technique",
+    format: "Recorded + Live Q&A",
+    orderCode: "course-myomectomy",
+  },
+  {
+    title: "Surgical Anatomy of the Female Pelvis",
+    desc: "Avascular pelvic spaces (paravesical, pararectal, Vesico-vaginal), blood supply, and navigating pelvic surgery without complications.",
+    badge: "Anatomy Foundation",
+    format: "Recorded Video Series",
+    orderCode: "course-anatomy",
+  },
+];
+---
+
+<Base title={title} metaDescription={metaDescription}>
+  <div class="page-container container">
+    <Breadcrumbs crumbs={[{ name: "Academy for Students", url: "/academy/" }]} />
+
+    <header class="page-header">
+      <span class="badge">Surgical Training & Postgraduate Education</span>
+      <h1>Dr. Mudita Jain Academy</h1>
+      <p class="lead">
+        Bridging the gap between textbook theory and operative excellence. Master surgical anatomy, laparoscopic techniques, and postgraduate OBG exam strategy.
+      </p>
+    </header>
+
+    <!-- Faculty Banner -->
+    <div class="faculty-banner">
+      <div class="faculty-avatar">👩‍⚕️</div>
+      <div class="faculty-details">
+        <h3>Led by Dr. Mudita Jain Talesra</h3>
+        <p>
+          MBBS, MS (Obstetrics & Gynaecology), FMAS, FICOG · <strong>Former Professor & HOD</strong> at RKDF Medical College, Bhopal. With over 17 years of surgical and teaching experience, Dr. Mudita has mentored hundreds of undergraduate and postgraduate medical residents.
+        </p>
+      </div>
+    </div>
+
+    <!-- Free YouTube Vault & WhatsApp Learning Community -->
+    <div class="vault-highlight-card">
+      <div class="vh-content">
+        <span class="vh-badge">Free Academic Resources</span>
+        <h2>The GynaeSurgeon Vault & Student Community</h2>
+        <p>
+          Access free surgical case walkthroughs, pelvic anatomy lectures, and clinical exam tips on our dedicated academic YouTube channel for medical students, residents, and young surgeons.
+        </p>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+          <a href={site.socials.youtubeStudent} target="_blank" rel="noopener" class="btn-vault">
+            Visit @DrMuditaJainVault on YouTube →
+          </a>
+          <a href={site.doctor.studentCommunityUrl} target="_blank" rel="noopener" class="btn-wa-group" style="display: inline-block; background: #25d366; color: #ffffff !important; font-weight: 700; font-size: 14px; padding: 10px 20px; border-radius: 6px; text-decoration: none;">
+            💬 Join Free OBG Learning Community (WhatsApp) →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paid Batches and Courses -->
+    <h2 class="section-title">Postgraduate Batches & Masterclasses</h2>
+    <p class="section-sub">
+      Delivered through Google Classroom and interactive Google Meet sessions. All clinical and surgical footage is strictly de-identified with patient consent per NMC guidelines.
+    </p>
+
+    <div class="academy-grid">
+      {
+        courses.map((course) => (
+          <div class="academy-card">
+            <span class="course-badge">{course.badge}</span>
+            <h3>{course.title}</h3>
+            <p class="course-format"><strong>Format:</strong> {course.format}</p>
+            <p class="course-desc">{course.desc}</p>
+            <div class="card-footer">
+              <WhatsAppCTA
+                title={`Enroll in ${course.title.split('(')[0]}`}
+                question={`Hello Dr. Mudita, I am an OBG student/resident interested in the ${course.title.split('(')[0].trim()}. Please share the syllabus and next batch details. [${course.orderCode}]`}
+                slug={`academy-${course.orderCode}`}
+              />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Institutional Inquiries -->
+    <div class="institutional-box">
+      <h3>For Medical Colleges & OBG Departments</h3>
+      <p>
+        Interested in arranging guest masterclasses, surgical anatomy symposiums, or institutional lecture series for your postgraduates?
+      </p>
+      <div class="inst-actions">
+        <WhatsAppCTA title="Institutional Inquiry" question="Hello Dr. Mudita, I am inquiring regarding an institutional academic lecture or workshop for our department. [inst-lecture]" slug="academy-institutional" />
+        <a href="/contact-us/" class="btn-inst-contact">Contact Clinic Desk</a>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .page-container {
+    padding: 30px 20px 60px 20px;
+  }
+  .page-header {
+    margin-bottom: 30px;
+  }
+  .badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .page-header h1 {
+    font-size: 32px;
+    color: #172b54;
+    margin-bottom: 10px;
+  }
+  .lead {
+    font-size: 16px;
+    color: #475569;
+    max-width: 800px;
+  }
+  .faculty-banner {
+    display: flex;
+    gap: 20px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 30px;
+    align-items: center;
+  }
+  .faculty-avatar {
+    font-size: 40px;
+  }
+  .faculty-details h3 {
+    font-size: 18px;
+    color: #172b54;
+    margin-bottom: 6px;
+  }
+  .faculty-details p {
+    font-size: 14px;
+    color: #475569;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .vault-highlight-card {
+    background: linear-gradient(135deg, #172b54 0%, #0f1d38 100%);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 35px;
+    margin-bottom: 45px;
+  }
+  .vh-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: #e0f2fe;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .vh-content h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  .vh-content p {
+    font-size: 15px;
+    color: #cbd5e1;
+    max-width: 700px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .btn-vault {
+    display: inline-block;
+    background: #ff0000;
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+  .section-title {
+    font-size: 24px;
+    color: #172b54;
+    margin-bottom: 6px;
+  }
+  .section-sub {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 25px;
+  }
+  .academy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+  }
+  .academy-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+  }
+  .course-badge {
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    align-self: flex-start;
+    margin-bottom: 12px;
+  }
+  .academy-card h3 {
+    font-size: 18px;
+    color: #172b54;
+    margin-bottom: 8px;
+  }
+  .course-format {
+    font-size: 13px;
+    color: #0284c7;
+    margin-bottom: 10px;
+  }
+  .course-desc {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+  .institutional-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 30px;
+  }
+  .institutional-box h3 {
+    font-size: 20px;
+    color: #172b54;
+    margin-bottom: 10px;
+  }
+  .institutional-box p {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .inst-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn-inst-contact {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    color: #334155 !important;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+  }
+</style>
+

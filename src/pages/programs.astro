@@ -1,0 +1,196 @@
+---
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
+import CallCTA from '@/components/CallCTA.astro';
+import FAQ from '@/components/FAQ.astro';
+import { site } from '@/data/site';
+
+const title = "Guided Health Programs: Pregnancy, PCOS & Menopause | Dr. Mudita Jain";
+const metaDescription = "Doctor-supervised multi-week lifestyle and clinical programs for pregnancy care, PCOS reversal, and menopause wellness by Dr. Mudita Jain Talesra.";
+
+const programs = [
+  {
+    title: "Holistic Pregnancy Care & Birth Preparation (8 Weeks)",
+    slug: "pregnancy-care",
+    desc: "A multi-week antenatal journey covering trimester nutrition, labor breathing, painless normal delivery truths, and newborn care.",
+    orderCode: "program-pregnancy",
+    points: [
+      "Weekly live webinars with Dr. Mudita Jain Talesra",
+      "Custom trimester nutrition and gentle pelvic exercise plans",
+      "Hospital bag checklist & labor partner coaching",
+      "Private WhatsApp peer group for continuous encouragement",
+    ],
+  },
+  {
+    title: "PCOS / PCOD Metabolic Reversal Program (12 Weeks)",
+    slug: "pcos-care",
+    desc: "Targeting the root cause of irregular cycles, hirsutism, and anovulation through low-glycemic nutrition, stress management, and medical tracking.",
+    orderCode: "program-pcos",
+    points: [
+      "Hormonal baseline assessment and personalized lifestyle blueprint",
+      "Low-glycemic Indian meal templates and grocery guidance",
+      "Doctor-led live Q&A sessions every two weeks",
+      "Habit accountability and menstrual tracking tools",
+    ],
+  },
+  {
+    title: "Menopause Wellness & Vitality Program (6 Weeks)",
+    slug: "menopause-care",
+    desc: "Navigating perimenopause and menopause with grace: managing hot flashes, bone density, cardiovascular health, and sleep.",
+    orderCode: "program-menopause",
+    points: [
+      "Evidence-based strategies for vasomotor hot flashes and night sweats",
+      "Calcium, vitamin D, and osteopenia prevention protocols",
+      "Pelvic floor strengthening and intimate comfort guidance",
+      "Supportive, empathetic community discussions",
+    ],
+  },
+  {
+    title: "Preconception & Fertility Readiness Program (4 Weeks)",
+    slug: "fertility-readiness",
+    desc: "Optimizing maternal and paternal biological readiness before trying to conceive to improve spontaneous conception rates.",
+    orderCode: "program-fertility",
+    points: [
+      "Accurate fertile ovulation window tracking methods",
+      "Preconceptional blood tests and folic acid timing",
+      "Dietary antioxidant repletion for egg and sperm quality",
+      "Stepwise roadmap for when to seek clinical evaluation",
+    ],
+  },
+];
+---
+
+<Base title={title} metaDescription={metaDescription}>
+  <div class="page-container container">
+    <Breadcrumbs
+      crumbs={[
+        { name: "Online Care", url: "/online-care/" },
+        { name: "Health Programs", url: "/programs/" },
+      ]}
+    />
+
+    <header class="page-header">
+      <span class="badge">Doctor-Supervised Programs</span>
+      <h1>Comprehensive Women's Health Programs</h1>
+      <p class="lead">
+        Structured, multi-week guidance designed to empower women through life's most critical milestones: pregnancy, PCOS regulation, and menopausal wellness.
+      </p>
+    </header>
+
+    <!-- How Programs Work -->
+    <div class="program-flow-banner">
+      <strong>How to Enroll:</strong> Tap any program CTA below to connect on WhatsApp. Availability and batch schedules are confirmed in chat, followed by UPI payment to <strong>+91 99938 95629</strong>.
+    </div>
+
+    <div class="programs-list">
+      {
+        programs.map((prog) => (
+          <div class="program-card">
+            <div class="program-header">
+              <h2>{prog.title}</h2>
+              <p class="program-desc">{prog.desc}</p>
+            </div>
+            <div class="program-body">
+              <h4>What is Included:</h4>
+              <ul class="points">
+                {prog.points.map((pt) => (
+                  <li>{pt}</li>
+                ))}
+              </ul>
+            </div>
+            <div class="program-footer">
+              <WhatsAppCTA
+                title={`Inquire About ${prog.title.split('(')[0]}`}
+                question={`Hello Dr. Mudita, I am interested in joining the ${prog.title.split('(')[0].trim()}. Please share the next batch dates. [${prog.orderCode}]`}
+                slug={`program-${prog.slug}`}
+              />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Base>
+
+<style>
+  .page-container {
+    padding: 30px 20px 60px 20px;
+  }
+  .page-header {
+    margin-bottom: 30px;
+  }
+  .badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .page-header h1 {
+    font-size: 32px;
+    color: #172b54;
+    margin-bottom: 10px;
+  }
+  .lead {
+    font-size: 16px;
+    color: #475569;
+    max-width: 800px;
+  }
+  .program-flow-banner {
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    padding: 16px 20px;
+    border-radius: 8px;
+    color: #065f46;
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+  .programs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .program-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .program-header h2 {
+    font-size: 22px;
+    color: #172b54;
+    margin-bottom: 8px;
+  }
+  .program-desc {
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .program-body h4 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #0369a1;
+    margin-bottom: 12px;
+  }
+  .points {
+    padding-left: 20px;
+    font-size: 14px;
+    color: #334155;
+    line-height: 1.8;
+  }
+  .program-footer {
+    padding-top: 15px;
+    border-top: 1px solid #f1f5f9;
+  }
+</style>
+

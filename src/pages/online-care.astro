@@ -1,0 +1,289 @@
+---
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
+import CallCTA from '@/components/CallCTA.astro';
+import { site } from '@/data/site';
+
+const title = "Online Gynecological Consultations & Digital Care | Dr. Mudita Jain";
+const metaDescription = "Access specialized gynecological teleconsultations, second opinions, and structured wellness programs online from home with Dr. Mudita Jain Talesra.";
+
+const schema = {
+  '@type': 'MedicalWebPage',
+  '@id': `${site.domain}/online-care/#webpage`,
+  name: title,
+  description: metaDescription,
+  reviewedBy: { '@id': `${site.domain}/#doctor` },
+  inLanguage: 'en-IN',
+  mainEntity: {
+    '@type': 'ItemList',
+    name: 'Online Gynecological Care Services',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Online Video Consultation',
+        url: `${site.domain}/consult-online/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Surgical & Report Second Opinion',
+        url: `${site.domain}/second-opinion/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'Guided Health Programs',
+        url: `${site.domain}/programs/`,
+      },
+    ],
+  },
+};
+---
+
+<Base title={title} metaDescription={metaDescription} schema={schema}>
+  <div class="page-container container">
+    <Breadcrumbs crumbs={[{ name: "Online Care", url: "/online-care/" }]} />
+
+    <header class="page-header">
+      <span class="badge">Telemedicine & Virtual Care</span>
+      <h1>Online Care & Teleconsultation Hub</h1>
+      <p class="lead">
+        Receive compassionate, evidence-based gynecological care from the comfort of your home. Structured under Indian Telemedicine Practice Guidelines.
+      </p>
+    </header>
+
+    <!-- 4-Step Process Banner -->
+    <div class="how-it-works-banner">
+      <div class="hiw-title">How Digital Services Work:</div>
+      <div class="hiw-steps">
+        <div class="hiw-step"><span>1</span> Chat on WhatsApp</div>
+        <div class="hiw-arrow">→</div>
+        <div class="hiw-step"><span>2</span> Confirm Slot & Fee</div>
+        <div class="hiw-arrow">→</div>
+        <div class="hiw-step"><span>3</span> Pay via UPI</div>
+        <div class="hiw-arrow">→</div>
+        <div class="hiw-step"><span>4</span> Join Video Call</div>
+      </div>
+      <div class="hiw-note">
+        <small>We confirm doctor availability before payment. Official UPI: <strong>+91 99938 95629</strong>. <a href="/how-to-book/">Read full policy →</a></small>
+      </div>
+    </div>
+
+    <!-- Digital Offerings Grid -->
+    <div class="offerings-grid">
+      <div class="offering-card">
+        <div class="card-icon">💻</div>
+        <h2>Online Video Consultation</h2>
+        <p class="card-desc">
+          1-on-1 private video consultation for menstrual irregularities, pregnancy advice, report review, and non-emergency gynecological concerns. Includes digital prescription and follow-up.
+        </p>
+        <ul class="card-points">
+          <li>20–30 minute direct video call</li>
+          <li>Detailed review of prior ultrasound/blood tests</li>
+          <li>Digital prescription on WhatsApp / Email</li>
+        </ul>
+        <div class="card-action">
+          <WhatsAppCTA title="Book Online Consult" question="Hello Dr. Mudita, I would like an online consultation. Please share available slots. [web-consult]" slug="online-care-consult" />
+          <a href="/consult-online/" class="btn-learn-more">Learn more details →</a>
+        </div>
+      </div>
+
+      <div class="offering-card">
+        <div class="card-icon">📑</div>
+        <h2>Surgical & Scan Second Opinion</h2>
+        <p class="card-desc">
+          Have you been advised a hysterectomy, fibroid surgery, or ovarian cyst removal? Receive a neutral, thorough second review of your scans and reports to explore minimally invasive options.
+        </p>
+        <ul class="card-points">
+          <li>Review of ultrasound, MRI, and biopsy reports</li>
+          <li>Objective surgical necessity assessment</li>
+          <li>Written clinical opinion delivered within 48h</li>
+        </ul>
+        <div class="card-action">
+          <WhatsAppCTA title="Request Second Opinion" question="Hello Dr. Mudita, I would like a second opinion on my surgical reports. [web-second-opinion]" slug="online-care-opinion" />
+          <a href="/second-opinion/" class="btn-learn-more">Learn more details →</a>
+        </div>
+      </div>
+
+      <div class="offering-card">
+        <div class="card-icon">🌱</div>
+        <h2>PCOS & Pregnancy Programs</h2>
+        <p class="card-desc">
+          Multi-week, doctor-supervised lifestyle and clinical management programs designed to tackle PCOS insulin resistance, prepare for birth, or manage menopausal transitions.
+        </p>
+        <ul class="card-points">
+          <li>Weekly doctor-led live group Q&A sessions</li>
+          <li>Dietary guidelines and habit trackers</li>
+          <li>Supportive patient community</li>
+        </ul>
+        <div class="card-action">
+          <WhatsAppCTA title="Inquire About Programs" question="Hello Dr. Mudita, I am interested in joining your guided health programs. [web-programs]" slug="online-care-programs" />
+          <a href="/programs/" class="btn-learn-more">Explore all programs →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Telemedicine Guidelines Disclaimer -->
+    <div class="telemedicine-disclaimer">
+      <h3>Notice per Telemedicine Practice Guidelines (India 2020)</h3>
+      <p>
+        Telemedicine consultations are suitable for initial assessments, report interpretations, and routine follow-ups. In-person clinical examinations are recommended whenever physical palpation or emergency procedures are clinically indicated. For severe acute symptoms, please visit your local hospital emergency department immediately.
+      </p>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .page-container {
+    padding: 30px 20px 60px 20px;
+  }
+  .page-header {
+    margin-bottom: 30px;
+  }
+  .badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .page-header h1 {
+    font-size: 32px;
+    color: #172b54;
+    margin-bottom: 10px;
+  }
+  .lead {
+    font-size: 16px;
+    color: #475569;
+    max-width: 800px;
+  }
+  .how-it-works-banner {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 40px;
+  }
+  .hiw-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #172b54;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+  .hiw-steps {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .hiw-step {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hiw-step span {
+    width: 24px;
+    height: 24px;
+    background: #0284c7;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+  }
+  .hiw-arrow {
+    color: #94a3b8;
+    font-weight: 700;
+  }
+  .hiw-note {
+    color: #64748b;
+  }
+  .hiw-note a {
+    color: #0284c7;
+    font-weight: 600;
+  }
+  .offerings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+  .offering-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-icon {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+  .offering-card h2 {
+    font-size: 20px;
+    color: #172b54;
+    margin-bottom: 12px;
+  }
+  .card-desc {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .card-points {
+    padding-left: 20px;
+    font-size: 14px;
+    color: #334155;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    flex-grow: 1;
+  }
+  .card-action {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .btn-learn-more {
+    text-align: center;
+    font-size: 14px;
+    color: #0284c7;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px;
+  }
+  .btn-learn-more:hover {
+    text-decoration: underline;
+  }
+  .telemedicine-disclaimer {
+    background: #f1f5f9;
+    border-left: 4px solid #64748b;
+    padding: 20px 24px;
+    border-radius: 6px;
+  }
+  .telemedicine-disclaimer h3 {
+    font-size: 16px;
+    color: #1e293b;
+    margin-bottom: 8px;
+  }
+  .telemedicine-disclaimer p {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+  }
+</style>
+

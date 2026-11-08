@@ -1,0 +1,163 @@
+---
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
+import CallCTA from '@/components/CallCTA.astro';
+import { site } from '@/data/site';
+
+const title = "Booking, Cancellation & Telemedicine Policy | Dr. Mudita Jain Talesra";
+const metaDescription = "Official booking, scheduling, cancellation, and telemedicine policy for consultations and digital services with Dr. Mudita Jain Talesra.";
+---
+
+<Base title={title} metaDescription={metaDescription}>
+  <div class="page-container container">
+    <Breadcrumbs crumbs={[{ name: "Booking Policy", url: "/booking-policy/" }]} />
+
+    <header class="page-header">
+      <span class="badge">Practice & Digital Terms</span>
+      <h1>Booking, Cancellation & Telemedicine Policy</h1>
+      <p class="lead">Last updated: November 8, 2026</p>
+    </header>
+
+    <div class="policy-wrapper">
+      <div class="main-policy">
+        <section class="card">
+          <h2>1. Consultation Scheduling & Payment Flow</h2>
+          <p>
+            All appointment bookings and digital service enrollments operate on a transparent, WhatsApp-first workflow:
+          </p>
+          <ol class="styled-list">
+            <li><strong>Initiate via WhatsApp:</strong> Tap any consultation button on the site to share your inquiry with our clinic desk.</li>
+            <li><strong>Availability Confirmation:</strong> Our team confirms doctor availability and mutually agrees upon an appointment slot and professional fee in the chat.</li>
+            <li><strong>Direct UPI Payment:</strong> Fees are paid directly via UPI to our official clinic number: <strong>+91 99938 95629</strong>. Please do not make any payment before slot confirmation.</li>
+            <li><strong>Confirmation & Access:</strong> Upon sharing the transaction screenshot in chat, you receive your formal confirmation and Google Meet or WhatsApp video link.</li>
+          </ol>
+        </section>
+
+        <section class="card">
+          <h2>2. Rescheduling & Cancellation Policy</h2>
+          <p>
+            We recognize that personal emergencies and clinical demands occur:
+          </p>
+          <ul class="styled-list">
+            <li><strong>Rescheduling:</strong> You may reschedule an appointment by notifying our clinic desk on WhatsApp. We provide priority access to the next mutually convenient slot.</li>
+            <li><strong>Cancellations:</strong> If you need to cancel a confirmed consultation before it begins, please message us on WhatsApp to discuss refund or credit options.</li>
+            <li><strong>Completed Consultations:</strong> Once a teleconsultation has been held or a medical second opinion written report has been issued, professional fees are non-refundable.</li>
+            <li><strong>Doctor Emergency Unavailability:</strong> In the rare event that Dr. Mudita is called for urgent obstetric labor or emergency surgery, you will be offered immediate priority rescheduling or a full refund.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>3. Telemedicine Practice Compliance (India 2020)</h2>
+          <p>
+            All remote teleconsultations provided by <strong>Dr. Mudita Jain Talesra</strong> (Madhya Pradesh Medical Council Reg. No. MP-8475) adhere strictly to the <em>Telemedicine Practice Guidelines</em> (India 2020):
+          </p>
+          <ul class="styled-list">
+            <li>Patients consent to telemedicine consultation upon booking.</li>
+            <li>Telemedicine is for non-emergency clinical review, report evaluation, and follow-ups.</li>
+            <li><strong>Emergency Notice:</strong> Acute emergencies (heavy uncontrollable bleeding, severe abdominal pain, high fever, or labor complications) require immediate evaluation at a hospital emergency room.</li>
+            <li>Prescriptions strictly comply with statutory medication restrictions; habit-forming or Schedule X drugs are never prescribed online.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>4. Anti-Fraud & Security Notice</h2>
+          <p>
+            We only accept payments to <strong>+91 99938 95629</strong>. We never request OTPs, credit card numbers, or passwords.
+          </p>
+        </section>
+      </div>
+
+      <aside class="sidebar">
+        <div class="sidebar-box">
+          <h3>Need Assistance?</h3>
+          <p>Have questions about appointment timings or technical setup?</p>
+          <div class="sidebar-ctas">
+            <WhatsAppCTA title="Clinic Desk" question="Hello, I have a question regarding the booking policy." slug="booking-policy" />
+            <CallCTA />
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .page-container {
+    padding: 30px 20px 60px 20px;
+  }
+  .page-header {
+    margin-bottom: 35px;
+  }
+  .badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .page-header h1 {
+    font-size: 32px;
+    color: #172b54;
+    margin-bottom: 10px;
+  }
+  .lead {
+    font-size: 16px;
+    color: #475569;
+  }
+  .policy-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 40px;
+  }
+  .card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+  }
+  .card h2 {
+    color: #172b54;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .card p {
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  .styled-list {
+    padding-left: 20px;
+    font-size: 15px;
+    color: #334155;
+    line-height: 1.8;
+  }
+  .sidebar-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .sidebar-box h3 {
+    color: #172b54;
+    margin-bottom: 12px;
+  }
+  .sidebar-box p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 900px) {
+    .policy-wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+

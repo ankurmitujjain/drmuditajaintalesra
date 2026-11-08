@@ -1,0 +1,186 @@
+---
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
+import CallCTA from '@/components/CallCTA.astro';
+import { site } from '@/data/site';
+
+const title = "Book Appointment with Dr. Mudita Jain Talesra | Bhopal";
+const metaDescription = "Schedule your gynecology or pregnancy consultation in Bhopal with Dr. Mudita Jain Talesra. Fast WhatsApp booking and clinic visits.";
+---
+
+<Base title={title} metaDescription={metaDescription}>
+  <div class="page-container container">
+    <Breadcrumbs crumbs={[{ name: "Book Appointment", url: "/book-appointment/" }]} />
+
+    <header class="page-header text-center">
+      <span class="badge">In-Person & Online Consultations</span>
+      <h1>Book an Appointment</h1>
+      <p class="lead">
+        Consult with <strong>{site.doctor.name}</strong> ({site.doctor.qualifications}) at Mudita Women Health Care Center, Gulmohar Colony, Bhopal.
+      </p>
+    </header>
+
+    <div class="booking-grid">
+      <div class="booking-card highlight">
+        <span class="card-badge">Instant & Recommended</span>
+        <h2>💬 WhatsApp Direct Booking</h2>
+        <p>
+          Fastest way to confirm timings, share previous ultrasound reports, or request in-person consultation slots directly with the clinic desk.
+        </p>
+        <div class="btn-wrap">
+          <WhatsAppCTA title="Direct Consultation" question="Hello Dr. Mudita, I would like to schedule an appointment." slug="book-instant" />
+        </div>
+        <p class="sub-note">✅ Quick replies · Reports review · Mon–Fri 5–8 PM consultation slots</p>
+      </div>
+
+      <div class="booking-card">
+        <span class="card-badge neutral">Telephone Desk</span>
+        <h2>📞 Direct Call Booking</h2>
+        <p>
+          Speak with our clinic reception for directions, consultation availability, or urgent inquiries.
+        </p>
+        <div class="btn-wrap">
+          <CallCTA label="Call: +91 83197 75863" />
+        </div>
+        <p class="sub-note">Clinic Hours: Monday – Friday, 5:00 PM – 8:00 PM</p>
+      </div>
+    </div>
+
+    <!-- Practice Information & Address -->
+    <div class="clinic-details-banner">
+      <div class="banner-inner">
+        <div class="detail-col">
+          <h3>📍 Clinic Location</h3>
+          <p>{site.clinicName}<br />{site.nap.address.street}, Bhopal (MP) 462039</p>
+        </div>
+        <div class="detail-col">
+          <h3>⏰ Consultation Timings</h3>
+          <p>{site.nap.hours.days}: {site.nap.hours.time}<br />{site.nap.hours.weekend}</p>
+        </div>
+        <div class="detail-col">
+          <h3>🎓 Doctor Credentials</h3>
+          <p>{site.doctor.name}<br />{site.doctor.qualifications} · Reg. {site.doctor.registrationNumber}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .page-container {
+    padding: 30px 20px 60px 20px;
+    max-width: 900px;
+  }
+  .page-header {
+    margin-bottom: 45px;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .page-header h1 {
+    font-size: 34px;
+    color: #172b54;
+    margin-bottom: 10px;
+  }
+  .lead {
+    font-size: 16px;
+    color: #475569;
+  }
+
+  .booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  .booking-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .booking-card.highlight {
+    border-color: #86efac;
+    background: #f0fdf4;
+  }
+  .card-badge {
+    display: inline-block;
+    background: #25d366;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    align-self: flex-start;
+    margin-bottom: 14px;
+  }
+  .card-badge.neutral {
+    background: #172b54;
+  }
+  .booking-card h2 {
+    font-size: 22px;
+    color: #172b54;
+    margin-bottom: 12px;
+  }
+  .booking-card p {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .btn-wrap {
+    margin-bottom: 16px;
+  }
+  .sub-note {
+    font-size: 12px !important;
+    color: #64748b !important;
+    margin-bottom: 0 !important;
+  }
+
+  .clinic-details-banner {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 28px;
+  }
+  .banner-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .detail-col h3 {
+    font-size: 15px;
+    color: #172b54;
+    margin-bottom: 6px;
+  }
+  .detail-col p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #475569;
+    margin: 0;
+  }
+
+  @media (max-width: 700px) {
+    .booking-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
