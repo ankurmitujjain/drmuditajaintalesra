@@ -6,7 +6,7 @@ publishDate: '2025-08-30'
 updatedDate: '2026-11-08'
 serviceSlug: laparoscopic-gynecology-procedures
 directAnswer: An ectopic pregnancy occurs when a fertilized ovum implants outside the uterine endometrial cavity, most commonly (in over 95% of cases) in the fallopian tube. Because a fallopian tube cannot support a growing gestational sac, an untreated ectopic pregnancy can rupture, causing life-threatening internal hemorrhage. Early diagnosis via serial serum beta-hCG and transvaginal ultrasound allows safe medical or laparoscopic surgical intervention.
-image: /images/blog-6-number-6-ectopic-pregnancy.webp
+image: /images/ectopic-pregnancy-treatment.webp
 youtubeId: Fp0d7VbB0h8
 faqs:
   - question: What are the earliest warning signs of an ectopic pregnancy?
@@ -19,6 +19,7 @@ faqs:
     answer: "Yes. Over 65% to 70% of women achieve a healthy uterine pregnancy following an ectopic pregnancy, even with one remaining healthy fallopian tube. However, the subsequent risk of a repeat ectopic pregnancy is approximately 10% to 15%, requiring early ultrasound in future pregnancies."
 draft: false
 reviewed: true
+reviewedDate: "2026-11-08"
 ---
 
 ## Understanding Ectopic Pregnancy

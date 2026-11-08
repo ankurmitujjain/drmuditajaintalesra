@@ -4,7 +4,9 @@ import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
 import { getCollection } from 'astro:content';
 
-const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const services = (await getCollection('services'))
+  .filter((s) => !s.data.draft)
+  .sort((a, b) => a.data.order - b.data.order);
 
 const title = "Gynecology & Obstetrics Services in Bhopal | Dr. Mudita Jain";
 const metaDescription = "Comprehensive women's healthcare services in Bhopal: laparoscopy, obstetrics, fertility, cosmetic gynecology, MTP, cervical health, and vaginal surgery.";

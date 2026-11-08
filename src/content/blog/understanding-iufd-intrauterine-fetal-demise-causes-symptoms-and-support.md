@@ -6,7 +6,7 @@ publishDate: '2025-08-30'
 updatedDate: '2026-11-08'
 serviceSlug: obstetrics-services
 directAnswer: Intrauterine Fetal Demise (IUFD), or stillbirth, refers to the clinical loss of a fetus after 20 completed weeks of gestation or weighing over 500 grams. Diagnosed conclusively via real-time obstetric ultrasound showing the absence of fetal cardiac activity, management focuses on medical induction of labor, maternal safety, investigating underlying etiologies, and offering compassionate psychological bereavement support.
-image: /images/blog-1-iufd-number-1.webp
+image: /images/iufd-fetal-demise.webp
 youtubeId: hyj3d1XdEBw
 faqs:
   - question: What is the most common maternal symptom of IUFD?
@@ -19,6 +19,7 @@ faqs:
     answer: "Over 85% to 90% of women who experience an unexplained stillbirth have a completely healthy, successful subsequent pregnancy. Future pregnancies require close multidisciplinary surveillance, serial growth ultrasounds, and scheduled delivery around 37 to 39 weeks."
 draft: false
 reviewed: true
+reviewedDate: "2026-11-08"
 ---
 
 ## Understanding Intrauterine Fetal Demise (IUFD)

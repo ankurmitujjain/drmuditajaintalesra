@@ -6,7 +6,7 @@ publishDate: '2025-08-30'
 updatedDate: '2026-11-08'
 serviceSlug: obstetrics-services
 directAnswer: A breech presentation occurs when a baby is positioned feet or buttocks first in the uterus instead of the head-down cephalic position. While common in early pregnancy, around 3% to 4% of babies remain breech at full term (37+ weeks). Safe management includes ultrasound assessment, assessing candidate eligibility for External Cephalic Version (ECV), and planned cesarean delivery when spontaneous rotation does not occur.
-image: /images/blog-2-breech-baby-number-2.png
+image: /images/breech-baby-presentation.webp
 youtubeId: 58-cMewGz2k
 faqs:
   - question: What causes a baby to remain in the breech position at term?
@@ -19,6 +19,7 @@ faqs:
     answer: "Planned vaginal breech delivery is generally considered only in strictly selected clinical criteria with an experienced obstetric team, a frank breech presentation, an estimated fetal weight between 2.5 kg and 3.5 kg, an extended fetal head on ultrasound, and immediate availability of emergency cesarean facilities. In modern obstetrics, planned cesarean section is the safest standard of care to minimize birth trauma and umbilical cord prolapse."
 draft: false
 reviewed: true
+reviewedDate: "2026-11-08"
 ---
 
 ## Understanding Fetal Presentation in Late Pregnancy

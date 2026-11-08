@@ -6,7 +6,7 @@ publishDate: '2025-08-30'
 updatedDate: '2026-11-08'
 serviceSlug: obstetrics-services
 directAnswer: Postpartum recovery (the 4th trimester) encompasses the 6 to 8 weeks following childbirth during which the maternal body returns toward its pre-pregnancy physiological state. Key care components include managing lochia discharge, proper perineal or cesarean incision hygiene, pelvic floor rehabilitation, nutritional repletion for lactation, and vigilance regarding postpartum mood disorders.
-image: /images/blog-8-number-8-postpartum-recovery.webp
+image: /images/postpartum-recovery-guide.webp
 youtubeId: jF3m0eU7uOw
 faqs:
   - question: How long does postpartum lochia bleeding normally last?
@@ -19,6 +19,7 @@ faqs:
     answer: "Postpartum blues affect up to 80% of mothers, characterized by mild mood swings and tearfulness that peak around day 4 to 5 and resolve within 2 weeks. Postpartum depression (PPD) is more severe and persistent, involving intense hopelessness, inability to care for oneself or the baby, or intrusive thoughts, requiring professional medical support."
 draft: false
 reviewed: true
+reviewedDate: "2026-11-08"
 ---
 
 ## The Fourth Trimester: Caring for the New Mother

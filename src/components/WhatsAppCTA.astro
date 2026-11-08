@@ -3,11 +3,21 @@ interface Props {
   title: string;
   question: string;
   slug?: string;
+  orderCode?: string;
   className?: string;
 }
 
-const { title, question, slug, className = "" } = Astro.props;
-const cleanMsg = `Hello Dr. Mudita, I read about ${title} on your website. ${question} [web-${slug || 'general'}]`;
+const { title, question, slug, orderCode, className = "" } = Astro.props;
+
+// Compute clean page/service tracking code
+const pageSlug = slug || Astro.url.pathname.replace(/^\/|\/$/g, '') || 'general';
+const trackingTag = orderCode ? `[${orderCode}]` : `[web-${pageSlug}]`;
+
+// If question already contains a bracketed tag, preserve it; otherwise append trackingTag
+const cleanMsg = question.includes('[')
+  ? question
+  : `Hello Dr. Mudita, I read about ${title} on your website. ${question} ${trackingTag}`;
+
 const encoded = encodeURIComponent(cleanMsg);
 const waUrl = `https://wa.me/919993895629?text=${encoded}`;
 ---

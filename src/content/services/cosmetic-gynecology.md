@@ -23,6 +23,7 @@ faqs:
     answer: "Consultations and procedures at Mudita Women Health Care Center are conducted under the highest standards of medical confidentiality, privacy, and clinical discretion."
 draft: false
 reviewed: true
+reviewedDate: "2026-11-08"
 ---
 
 ## Functional & Aesthetic Intimate Healthcare in Bhopal

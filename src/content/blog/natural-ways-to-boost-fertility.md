@@ -6,7 +6,7 @@ publishDate: '2025-08-30'
 updatedDate: '2026-11-08'
 serviceSlug: fertility-services
 directAnswer: Couples planning pregnancy can enhance fertility naturally by tracking the fertile ovulation window, maintaining an antioxidant-rich diet, optimizing body weight (BMI 19–24), managing stress levels, and supplementing folic acid. Evidence shows timely evaluation is advised if pregnancy does not occur after 12 months of regular unprotected intercourse.
-image: /images/blog-4-number-4-natural-ways-to-boost-fertility.webp
+image: /images/boost-fertility-naturally.webp
 youtubeId: hyj3d1XdEBw
 faqs:
   - question: What is the fertile window for natural conception?
@@ -19,6 +19,7 @@ faqs:
     answer: "If the female partner is under 35 and conception has not occurred after 12 months of regular unprotected intercourse, a clinical fertility workup is recommended. For women aged 35 or older, or those with known irregular periods, endometriosis, or pelvic surgery history, evaluation is recommended after 6 months."
 draft: false
 reviewed: true
+reviewedDate: "2026-11-08"
 ---
 
 ## Preparing Your Body for a Healthy Pregnancy

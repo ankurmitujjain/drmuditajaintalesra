@@ -21,6 +21,7 @@ faqs:
     answer: "Most patients are discharged within 24 to 48 hours following vaginal surgery. Because there are no painful abdominal incisions, postoperative mobilization is rapid. Light daily activities can generally be resumed within 1 to 2 weeks."
 draft: false
 reviewed: true
+reviewedDate: "2026-11-08"
 ---
 
 ## True Natural-Orifice Surgery: No Abdominal Scars

@@ -24,6 +24,7 @@ faqs:
     answer: "Immediate medical contact is mandatory if you experience vaginal bleeding, sudden leakage of fluid (water breaking), severe persistent headache with blurred vision, sudden facial or hand swelling, persistent high fever, severe epigastric abdominal pain, or a noticeable decrease in fetal movements after 28 weeks."
 draft: false
 reviewed: true
+reviewedDate: "2026-11-08"
 ---
 
 ## Compassionate, Evidence-Based Maternity Care in Bhopal

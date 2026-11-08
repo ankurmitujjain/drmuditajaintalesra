@@ -3,9 +3,11 @@ import Base from '@/layouts/Base.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 
-const blogs = (await getCollection('blog')).sort(
-  (a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
-);
+const blogs = (await getCollection('blog'))
+  .filter((b) => !b.data.draft)
+  .sort(
+    (a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
+  );
 
 const title = "Women's Health & Pregnancy Blog | Dr. Mudita Jain Talesra";
 const metaDescription = "Evidence-based articles on pregnancy, menstrual health, fertility and gynecological procedures by Dr. Mudita Jain Talesra, Bhopal. WhatsApp for queries.";

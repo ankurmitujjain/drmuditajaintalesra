@@ -1,0 +1,105 @@
+---
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
+import CallCTA from '@/components/CallCTA.astro';
+import { site } from '@/data/site';
+
+const title = "Refund, Cancellation & Rescheduling Policy | Dr. Mudita Jain Talesra";
+const metaDescription = "Clear and fair refund, cancellation, and rescheduling terms for online gynecological consultations, second opinions, and medical courses.";
+---
+
+<Base title={title} metaDescription={metaDescription}>
+  <div class="page-container container">
+    <Breadcrumbs crumbs={[{ name: "Refund Policy", url: "/refund-policy/" }]} />
+
+    <header class="page-header">
+      <span class="badge">Policy & Cancellations</span>
+      <h1>Refund & Rescheduling Policy</h1>
+      <p class="lead">Last updated: November 8, 2026</p>
+    </header>
+
+    <div class="policy-content">
+      <section>
+        <h2>1. Online Video Consultations & Second Opinions</h2>
+        <ul>
+          <li><strong>Free Rescheduling:</strong> You may reschedule your teleconsultation appointment up to <strong>4 hours before</strong> the confirmed time at no additional charge by sending a request on WhatsApp to +91 99938 95629.</li>
+          <li><strong>Cancellations Prior to Consultation:</strong> If you cancel your confirmed appointment at least <strong>12 hours before</strong> the scheduled slot, a 100% refund will be processed to the originating UPI account within 2 to 3 business days.</li>
+          <li><strong>Late Cancellations & No-Shows:</strong> Cancellations made within 4 hours of the appointment or failure to join the consultation call within 15 minutes of the start time are non-refundable, as that time slot was exclusively reserved for you.</li>
+          <li><strong>Post-Consultation:</strong> Once a consultation has been held or a medical second-opinion report has been issued, professional fees are strictly non-refundable.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>2. Digital Educational Courses & Batches</h2>
+        <ul>
+          <li><strong>Recorded Modules:</strong> Because digital course materials and video lecture archives are accessible immediately upon verification, payments for recorded video masterclasses are non-refundable once Google Classroom access has been provided.</li>
+          <li><strong>Live Resident Batches:</strong> Full refunds are available if requested at least 48 hours before the first scheduled live session of the batch. After batch commencement, pro-rata credits toward future batches may be offered at the doctor’s discretion.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Doctor Unavailability & Technical Interruptions</h2>
+        <p>
+          In the rare event that Dr. Mudita Jain Talesra is called into an emergency obstetric delivery or urgent surgery during your scheduled consultation slot, you will be notified immediately. You will have the choice of:
+        </p>
+        <ol>
+          <li>Priority rescheduling to the next earliest mutually convenient time.</li>
+          <li>An immediate 100% refund of the paid fee.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>4. Contact for Refund Inquiries</h2>
+        <p>
+          For any payment or refund queries, contact our clinic administration team on WhatsApp at <strong>+91 99938 95629</strong> or by email at <strong>muditajain2000@gmail.com</strong>.
+        </p>
+      </section>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .page-container {
+    padding: 30px 20px 60px 20px;
+  }
+  .page-header {
+    margin-bottom: 35px;
+  }
+  .badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .policy-content {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 35px;
+    max-width: 900px;
+  }
+  .policy-content section {
+    margin-bottom: 30px;
+  }
+  .policy-content h2 {
+    color: #172b54;
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .policy-content p, .policy-content li {
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .policy-content ul, .policy-content ol {
+    padding-left: 20px;
+  }
+</style>
+

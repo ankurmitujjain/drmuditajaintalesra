@@ -6,7 +6,7 @@ publishDate: '2025-08-30'
 updatedDate: '2026-11-08'
 serviceSlug: obstetrics-services
 directAnswer: A pregnancy that extends beyond the estimated due date (EDD) of 40 completed weeks is termed post-dated, and beyond 42 weeks is classified as post-term. While many women deliver safely past their due date, prolonged gestation carries risks of placental insufficiency, reduced amniotic fluid (oligohydramnios), and meconium aspiration. Management involves close biophysical monitoring and timely labor induction by 41 weeks.
-image: /images/blog-5-number-5-post-dated-pregnancy.png
+image: /images/post-dated-pregnancy.webp
 youtubeId: zFjZ9tU2bO4
 faqs:
   - question: Why has my labor not started even after my due date?
@@ -19,6 +19,7 @@ faqs:
     answer: "Major clinical guidelines (ACOG, NICE, FOGSI) recommend offering labor induction between 41 weeks + 0 days and 41 weeks + 6 days to prevent perinatal morbidity associated with post-term placental insufficiency."
 draft: false
 reviewed: true
+reviewedDate: "2026-11-08"
 ---
 
 ## What Happens When Your Due Date Passes?

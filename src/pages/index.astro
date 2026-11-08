@@ -6,8 +6,12 @@ import CallCTA from '@/components/CallCTA.astro';
 import TrustBar from '@/components/TrustBar.astro';
 import { site } from '@/data/site';
 
-const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
-const blogs = (await getCollection('blog')).slice(0, 3);
+const services = (await getCollection('services'))
+  .filter((s) => !s.data.draft)
+  .sort((a, b) => a.data.order - b.data.order);
+const blogs = (await getCollection('blog'))
+  .filter((b) => !b.data.draft)
+  .slice(0, 3);
 
 const title = "Dr. Mudita Jain Talesra | Gynecologist & Laparoscopic Surgeon Bhopal";
 const metaDescription = "Consult Dr. Mudita Jain Talesra (MS, FMAS, FICOG) in Gulmohar Colony, Bhopal. 17+ years experience in pregnancy care, laparoscopic surgery & women's health.";

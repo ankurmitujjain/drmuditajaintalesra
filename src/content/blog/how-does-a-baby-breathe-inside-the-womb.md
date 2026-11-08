@@ -6,7 +6,7 @@ publishDate: '2025-08-30'
 updatedDate: '2026-11-08'
 serviceSlug: obstetrics-services
 directAnswer: An unborn baby does not breathe air inside the uterus. Instead, fetal oxygenation is sustained entirely by maternal-fetal gas exchange through the placenta and umbilical cord. Maternal blood delivers oxygen across the placental membrane into the umbilical vein, while fetal lungs remain filled with amniotic fluid until the dramatic transition at birth when the baby takes its first breath.
-image: /images/blog-3-number-3-how-babies-breathe.jpg
+image: /images/how-babies-breathe-womb.webp
 youtubeId: tG9c0uY3a2o
 faqs:
   - question: If babies don't breathe air in the womb, what are their lungs doing?
@@ -19,6 +19,7 @@ faqs:
     answer: "The first breath is stimulated by multiple sensory and chemical triggers—thermal change upon delivery, chest compression and recoil during vaginal birth, sensory tactile stimulation, and a brief physiological drop in arterial oxygen (hypoxia) during cord clamping."
 draft: false
 reviewed: true
+reviewedDate: "2026-11-08"
 ---
 
 ## The Marvel of Fetal Respiration Inside the Uterus

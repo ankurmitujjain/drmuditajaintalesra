@@ -24,6 +24,7 @@ faqs:
     answer: "Ensure your surgeon holds recognized postgraduate surgical qualifications in Obstetrics and Gynaecology (MS/DNB) plus an accredited Fellowship in Minimal Access Surgery (such as FMAS awarded by AMASI) and documented operating experience in advanced pelvic dissections."
 draft: false
 reviewed: true
+reviewedDate: "2026-11-08"
 ---
 
 ## Advanced Minimal Access Keyhole Surgery in Bhopal

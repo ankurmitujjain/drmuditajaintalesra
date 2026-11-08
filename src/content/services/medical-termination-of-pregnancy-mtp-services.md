@@ -23,6 +23,7 @@ faqs:
     answer: "Self-medicating with over-the-counter abortion pills without an ultrasound to confirm gestational age and rule out an ectopic (tubal) pregnancy is dangerous. Incomplete abortion, catastrophic hemorrhage, and unrecognized ectopic rupture can result from unmonitored pill use."
 draft: false
 reviewed: true
+reviewedDate: "2026-11-08"
 ---
 
 ## Safe, Legal & Compassionate Abortion Care

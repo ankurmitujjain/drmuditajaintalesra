@@ -24,6 +24,7 @@ faqs:
     answer: "No. Anti-Müllerian Hormone (AMH) reflects ovarian follicle quantity (reserve), not egg quality. Many women with low AMH conceive naturally or through gentle ovulation induction protocols, provided ovulatory cycles are monitored closely."
 draft: false
 reviewed: true
+reviewedDate: "2026-11-08"
 ---
 
 ## Stepwise, Transparent Fertility Care in Bhopal
