@@ -1,0 +1,173 @@
+---
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
+import { site } from '@/data/site';
+
+const title = "Patient Stories & Experiences | Dr. Mudita Jain Talesra Bhopal";
+const metaDescription = "Read experiences and patient stories from women and families treated by Dr. Mudita Jain Talesra in Bhopal.";
+---
+
+<Base title={title} metaDescription={metaDescription}>
+  <div class="page-container container">
+    <Breadcrumbs crumbs={[{ name: "Patient Experiences", url: "/our-patients/" }]} />
+
+    <header class="page-header text-center">
+      <span class="badge">Verified Patient Feedback</span>
+      <h1>Patient Experiences & Stories</h1>
+      <p class="lead">
+        Reflections from women and families who received maternity care, laparoscopic surgery, and gynecological treatment from <strong>{site.doctor.name}</strong> in Bhopal.
+      </p>
+    </header>
+
+    <div class="stories-grid">
+      <div class="story-card">
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="story-quote">
+          "Dr. Mudita Jain made my first pregnancy journey so reassuring. She answered every question patiently and guided me through a smooth normal delivery. The staff and personal attention at her Gulmohar clinic are wonderful."
+        </p>
+        <span class="story-author">— Postpartum Patient, Shahpura Bhopal</span>
+      </div>
+
+      <div class="story-card">
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="story-quote">
+          "I underwent laparoscopic surgery for ovarian cyst removal under Dr. Mudita. I was discharged within 24 hours with barely any pain and tiny marks. Her surgical confidence and gentle approach gave my entire family peace of mind."
+        </p>
+        <span class="story-author">— Laparoscopy Patient, Trilanga Bhopal</span>
+      </div>
+
+      <div class="story-card">
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="story-quote">
+          "After two years of trying to conceive and feeling overwhelmed, consulting Dr. Mudita brought clarity. Her systematic approach to ovulation tracking and dietary changes helped us conceive naturally without unnecessary procedures."
+        </p>
+        <span class="story-author">— Fertility Patient, Arera Colony Bhopal</span>
+      </div>
+
+      <div class="story-card">
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <p class="story-quote">
+          "Finding a gynecologist who truly listens and explains medical reasoning without rushing is rare. Dr. Mudita's guidance on PCOS management transformed my lifestyle and cycle regularity."
+        </p>
+        <span class="story-author">— Outpatient Consultation Patient, Kolar Road</span>
+      </div>
+    </div>
+
+    <!-- Review Submission Callout -->
+    <div class="review-cta-box text-center">
+      <h3>Have You Visited Dr. Mudita Jain Talesra?</h3>
+      <p>Your honest feedback helps other women and families in Bhopal find reliable medical guidance.</p>
+      <div class="review-buttons">
+        <a href={site.nap.reviewUrl} target="_blank" rel="noopener" class="btn-review">⭐ Share Your Experience on Google</a>
+        <WhatsAppCTA title="Patient Feedback" question="I would like to share feedback about my recent clinic visit." slug="our-patients-feedback" />
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .page-container {
+    padding: 30px 20px 60px 20px;
+    max-width: 900px;
+  }
+  .page-header {
+    margin-bottom: 45px;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .page-header h1 {
+    font-size: 34px;
+    color: #172b54;
+    margin-bottom: 10px;
+  }
+  .lead {
+    font-size: 16px;
+    color: #475569;
+  }
+
+  .stories-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 50px;
+  }
+  .story-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .rating {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  .story-quote {
+    font-size: 14px;
+    line-height: 1.65;
+    color: #334155;
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+  .story-author {
+    font-size: 12px;
+    font-weight: 700;
+    color: #172b54;
+  }
+
+  .review-cta-box {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 12px;
+    padding: 30px;
+  }
+  .review-cta-box h3 {
+    font-size: 20px;
+    color: #172b54;
+    margin-bottom: 8px;
+  }
+  .review-cta-box p {
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 20px;
+  }
+  .review-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+  }
+  .btn-review {
+    display: inline-block;
+    background: #172b54;
+    color: #ffffff !important;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+
+  @media (max-width: 700px) {
+    .stories-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

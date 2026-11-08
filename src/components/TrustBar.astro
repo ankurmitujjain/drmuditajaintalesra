@@ -1,0 +1,73 @@
+---
+import { site } from '@/data/site';
+---
+
+<div class="trust-bar">
+  <div class="container trust-grid">
+    <div class="trust-item">
+      <span class="trust-icon">🎓</span>
+      <div class="trust-text">
+        <strong>{site.doctor.qualifications}</strong>
+        <span>MPMC Reg. {site.doctor.registrationNumber}</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🏥</span>
+      <div class="trust-text">
+        <strong>{site.doctor.experienceYears} Clinical Experience</strong>
+        <span>{site.doctor.formerRole}</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">📍</span>
+      <div class="trust-text">
+        <strong>Mudita Women Health Care Center</strong>
+        <span>Gulmohar Colony, Bhopal (Near Trilanga)</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">⏰</span>
+      <div class="trust-text">
+        <strong>{site.nap.hours.daysShort}</strong>
+        <span>WhatsApp booking 24/7</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .trust-bar {
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 16px 0;
+  }
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+    align-items: center;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .trust-icon {
+    font-size: 24px;
+    line-height: 1;
+  }
+  .trust-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+  .trust-text strong {
+    color: #172b54;
+    font-weight: 700;
+  }
+  .trust-text span {
+    color: #64748b;
+  }
+</style>

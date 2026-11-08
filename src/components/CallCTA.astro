@@ -1,0 +1,44 @@
+---
+import { site } from '@/data/site';
+
+interface Props {
+  className?: string;
+  label?: string;
+}
+
+const { className = "", label = "Call Clinic: +91 83197 75863" } = Astro.props;
+---
+
+<a
+  href={`tel:${site.nap.phones.callRaw}`}
+  class={`call-cta-btn ${className}`}
+  onclick="if(window.gtag)gtag('event','phone_click',{'page_path':window.location.pathname,'cta_position':'inline_call'});"
+>
+  <span class="icon">📞</span>
+  <span class="text">{label}</span>
+</a>
+
+<style>
+  .call-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #172b54;
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    line-height: 1.2;
+    transition: background 0.2s ease, transform 0.15s ease;
+  }
+  .call-cta-btn:hover {
+    background: #0f1d38;
+    transform: translateY(-1px);
+  }
+  .icon {
+    font-size: 16px;
+  }
+</style>

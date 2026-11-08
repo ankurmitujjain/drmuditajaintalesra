@@ -1,0 +1,326 @@
+---
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
+import CallCTA from '@/components/CallCTA.astro';
+import TrustBar from '@/components/TrustBar.astro';
+import { site } from '@/data/site';
+
+const title = "About Dr. Mudita Jain Talesra | Gynecologist in Bhopal";
+const aboutSchema = {
+  '@type': 'Physician',
+  '@id': 'https://drmuditajaintalesra.com/#doctor',
+  name: site.doctor.name,
+  sameAs: [
+    site.socials.youtubePatient,
+    site.socials.youtubeStudent,
+    site.socials.instagram,
+    site.socials.facebook,
+    site.socials.practo,
+  ],
+};
+const metaDescription = "Learn about Dr. Mudita Jain Talesra (MS, FMAS, FICOG), leading gynecologist and laparoscopic surgeon in Bhopal with 17+ years experience at RKDF Medical College.";
+---
+
+<Base title={title} metaDescription={metaDescription} schema={aboutSchema}>
+  <div class="page-container container">
+    <Breadcrumbs crumbs={[{ name: "About Doctor", url: "/about-us/" }]} />
+
+    <header class="page-header">
+      <span class="badge">Doctor Profile & Medical Credentials</span>
+      <h1>About Dr. Mudita Jain Talesra</h1>
+      <p class="lead">
+        Senior Consultant Gynecologist, Obstetrician & Laparoscopic Surgeon · MPMC Registration <strong>{site.doctor.registrationNumber}</strong> · 17+ Years Clinical Excellence
+      </p>
+    </header>
+
+    <div class="about-grid">
+      <div class="about-main">
+        <section class="profile-card">
+          <h2>Clinical Leadership & Background</h2>
+          <p>
+            <strong>Dr. Mudita Jain Talesra</strong> (registered in the Madhya Pradesh Medical Council as Dr. Jain Miss Mudita Ashok Kumar, Reg. No. MP-8475) is a highly experienced gynecologist, urogynaecologist, and minimal access laparoscopic surgeon practicing in Bhopal, Madhya Pradesh.
+          </p>
+          <p>
+            She currently leads her private clinical practice at <strong>Mudita Women Health Care Center</strong> in Gulmohar Colony, Bhopal. {site.doctor.formerRole}.
+          </p>
+          <p>
+            With over 17 years of dedicated clinical practice, Dr. Mudita is known for her calm, patient-centric bedside manner, thorough diagnostic acumen, and strict adherence to evidence-based Indian (FOGSI) and international (ACOG/RCOG) clinical guidelines.
+          </p>
+        </section>
+
+        <section class="qualifications-table-section">
+          <h2>Degrees & Medical Fellowships</h2>
+          <div class="table-responsive">
+            <table class="creds-table">
+              <thead>
+                <tr>
+                  <th>Degree / Fellowship</th>
+                  <th>Institution / University</th>
+                  <th>Year</th>
+                </tr>
+              </thead>
+              <tbody>
+                {site.doctor.degrees.map((d) => (
+                  <tr>
+                    <td><strong>{d.degree}</strong></td>
+                    <td>{d.college ? `${d.college}, ` : ''}{d.university || d.institution}</td>
+                    <td>{d.year}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="awards-section">
+          <h2>Honours, Awards & Recognition</h2>
+          <div class="awards-grid">
+            <div class="award-item">
+              <img src="/images/award-minister-vishwas-sarang.webp" alt="Felicitation by Shri Vishwas Sarang, Minister of Medical Education" width="400" height="250" loading="lazy" class="award-photo" />
+              <p>Honoured by Shri Vishwas Sarang (then Minister of Medical Education, MP), who also inaugurated the clinical healthcare facility in Bhopal.</p>
+            </div>
+            <div class="award-item">
+              <img src="/images/icog-convocation-2022.webp" alt="ICOG Convocation 2022" width="400" height="250" loading="lazy" class="award-photo" />
+              <p>Awarded the prestigious Fellowship of the Indian College of Obstetricians & Gynaecologists (FICOG) at Convocation 2022.</p>
+            </div>
+            <div class="award-item">
+              <img src="/images/masters-cosmetic-gynecology.webp" alt="Master's in Cosmetic Gynecology" width="400" height="250" loading="lazy" class="award-photo" />
+              <p>Certified Master's in Cosmetic & Reconstructive Gynecology, specializing in intimate female wellness.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="academic-section">
+          <h2>National Master Trainer & Academic Leadership</h2>
+          <p>
+            Dr. Mudita Jain Talesra serves as a <strong>National Master Trainer</strong> for:
+          </p>
+          <ul>
+            <li><strong>HPV Vaccination:</strong> Training medical practitioners across Central India on cervical cancer prevention strategies.</li>
+            <li><strong>Comprehensive Abortion Care (CAC):</strong> Advocating for safe, legal, and respectful reproductive healthcare within MTP statutory guidelines.</li>
+            <li><strong>Contraceptive Implants:</strong> Training physicians in subdermal contraceptive insertion and removal techniques.</li>
+          </ul>
+        </section>
+
+        <section class="youtube-section">
+          <h2>Educational Video Channels</h2>
+          <p>
+            Dr. Mudita actively educates patients and training doctors through two distinct platforms:
+          </p>
+          <div class="channels-box">
+            <div class="channel-card">
+              <h3>📺 For Patients & Families</h3>
+              <p>Clear, empathetic Hindi/Hinglish explanations answering common questions on pregnancy, periods, PCOS, and surgery.</p>
+              <a href={site.socials.youtubePatient} target="_blank" rel="noopener" class="channel-btn">Visit @DrMuditaJainTalesra →</a>
+            </div>
+            <div class="channel-card">
+              <h3>🔬 For Medical Students & Residents</h3>
+              <p><strong>The GynaeSurgeon Vault</strong>: Surgical technique demonstrations, case presentations, and OBG exam preparation.</p>
+              <a href={site.socials.youtubeStudent} target="_blank" rel="noopener" class="channel-btn">Visit @DrMuditaJainVault →</a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="about-sidebar">
+        <div class="sidebar-box">
+          <img src="/images/clinic-exterior.webp" alt="Mudita Women Health Care Center" width="300" height="200" class="sidebar-img" />
+          <h3>Practice Overview</h3>
+          <p><strong>Center:</strong> {site.clinicName}</p>
+          <p><strong>Location:</strong> {site.nap.address.street}, Bhopal</p>
+          <p><strong>Consultations:</strong> {site.nap.hours.days}: {site.nap.hours.time}</p>
+          <p><strong>Registration:</strong> {site.doctor.councilRegistration} No. {site.doctor.registrationNumber}</p>
+          <div class="sidebar-ctas">
+            <WhatsAppCTA title="Consultation with Dr. Mudita" question="I would like to book a consultation at your clinic." slug="about-sidebar" />
+            <CallCTA />
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .page-container {
+    padding: 30px 20px 60px 20px;
+  }
+  .page-header {
+    margin-bottom: 35px;
+  }
+  .badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .page-header h1 {
+    font-size: 34px;
+    color: #172b54;
+    margin-bottom: 10px;
+  }
+  .lead {
+    font-size: 16px;
+    color: #475569;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .about-main section {
+    margin-bottom: 40px;
+  }
+  .about-main h2 {
+    font-size: 22px;
+    color: #172b54;
+    margin-bottom: 14px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 8px;
+  }
+  .about-main p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #334155;
+    margin-bottom: 14px;
+  }
+  .about-main ul {
+    padding-left: 20px;
+    margin-bottom: 16px;
+    line-height: 1.7;
+    color: #334155;
+    font-size: 15px;
+  }
+
+  /* Table */
+  .table-responsive {
+    overflow-x: auto;
+  }
+  .creds-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .creds-table th,
+  .creds-table td {
+    padding: 12px 14px;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+  }
+  .creds-table th {
+    background: #172b54;
+    color: #ffffff;
+  }
+  .creds-table tr:nth-child(even) {
+    background: #f8fafc;
+  }
+
+  /* Awards */
+  .awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 16px;
+  }
+  .award-item {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 12px;
+  }
+  .award-photo {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  .award-item p {
+    font-size: 12px;
+    line-height: 1.4;
+    color: #475569;
+    margin: 0;
+  }
+
+  /* YouTube Channels */
+  .channels-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 14px;
+  }
+  .channel-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 18px;
+  }
+  .channel-card h3 {
+    font-size: 16px;
+    color: #172b54;
+    margin-bottom: 8px;
+  }
+  .channel-card p {
+    font-size: 13px;
+    color: #475569;
+    margin-bottom: 14px;
+  }
+  .channel-btn {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0284c7;
+  }
+
+  /* Sidebar */
+  .sidebar-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 24px;
+    position: sticky;
+    top: 80px;
+  }
+  .sidebar-img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 16px;
+  }
+  .sidebar-box h3 {
+    font-size: 18px;
+    color: #172b54;
+    margin-bottom: 12px;
+  }
+  .sidebar-box p {
+    font-size: 13px;
+    color: #475569;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .sidebar-ctas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  @media (max-width: 800px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+    .channels-box {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

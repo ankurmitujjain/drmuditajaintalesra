@@ -1,0 +1,118 @@
+---
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import { site } from '@/data/site';
+
+const title = "Privacy Policy | Dr. Mudita Jain Talesra Bhopal";
+const metaDescription = "Privacy policy for Dr. Mudita Jain Talesra's medical practice website. Learn how patient data and inquiry information is protected.";
+---
+
+<Base title={title} metaDescription={metaDescription}>
+  <div class="page-container container">
+    <Breadcrumbs crumbs={[{ name: "Privacy Policy", url: "/privacy-policy/" }]} />
+
+    <header class="page-header">
+      <h1>Privacy Policy</h1>
+      <p class="lead">Last updated: November 2026</p>
+    </header>
+
+    <div class="policy-content">
+      <section>
+        <h2>1. Commitment to Patient Privacy</h2>
+        <p>
+          At <strong>{site.clinicName}</strong>, we are committed to upholding the confidentiality, security, and privacy of all personal and medical information shared by our patients, visitors, and website users. This policy outlines how information submitted through <strong>drmuditajaintalesra.com</strong> is collected, utilized, and safeguarded.
+        </p>
+      </section>
+
+      <section>
+        <h2>2. Information We Collect</h2>
+        <p>When you interact with our website or contact our clinic, we may collect:</p>
+        <ul>
+          <li><strong>Contact Information:</strong> Full name, telephone/WhatsApp number, and email address submitted via appointment or inquiry forms.</li>
+          <li><strong>Clinical Details:</strong> General health concerns or appointment preferences voluntarily shared in form messages or WhatsApp inquiries.</li>
+          <li><strong>Analytical Usage Data:</strong> Anonymous browsing metrics (pages viewed, visit duration, general geographical city) via Google Analytics 4 to optimize website performance. No personally identifiable medical records are tracked by analytics.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Medical Confidentiality & Use of Data</h2>
+        <p>
+          Any clinical or appointment detail shared is strictly utilized to:
+        </p>
+        <ul>
+          <li>Coordinate consultation appointments and provide accurate clinic information.</li>
+          <li>Communicate with you regarding your medical query, reports review, or follow-up schedules.</li>
+        </ul>
+        <p>
+          We never sell, rent, or lease patient contact details or health information to third-party commercial entities, marketers, or advertisers.
+        </p>
+      </section>
+
+      <section>
+        <h2>4. Statutory Medical Regulations</h2>
+        <p>
+          Our practice strictly complies with the <strong>National Medical Commission (NMC) Professional Conduct Regulations</strong>, the <strong>Medical Termination of Pregnancy (MTP) Act</strong> statutory confidentiality standards, and applicable Indian data protection frameworks.
+        </p>
+      </section>
+
+      <section>
+        <h2>5. Contact Us</h2>
+        <p>
+          If you have questions regarding this privacy policy or your personal records, please reach out directly:
+        </p>
+        <p>
+          <strong>Mudita Women Health Care Center</strong><br />
+          E-8, Plot No. G-1/24-25, Gulmohar Colony, Bhopal, MP 462039<br />
+          Email: <a href={`mailto:${site.nap.email}`}>{site.nap.email}</a><br />
+          Phone: {site.nap.phones.call}
+        </p>
+      </section>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .page-container {
+    padding: 30px 20px 60px 20px;
+    max-width: 800px;
+  }
+  .page-header {
+    margin-bottom: 35px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 20px;
+  }
+  .page-header h1 {
+    font-size: 32px;
+    color: #172b54;
+    margin-bottom: 8px;
+  }
+  .lead {
+    font-size: 14px;
+    color: #64748b;
+  }
+  .policy-content section {
+    margin-bottom: 30px;
+  }
+  .policy-content h2 {
+    font-size: 20px;
+    color: #172b54;
+    margin-bottom: 12px;
+  }
+  .policy-content p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #334155;
+    margin-bottom: 12px;
+  }
+  .policy-content ul {
+    padding-left: 24px;
+    margin-bottom: 14px;
+    line-height: 1.7;
+    color: #334155;
+    font-size: 15px;
+  }
+  .policy-content a {
+    color: #172b54;
+    font-weight: 600;
+  }
+</style>

@@ -1,0 +1,28 @@
+# --- Private / never publish ---
+docs/Mudita/
+SEO_AEO_MASTER_PROMPT.md
+IMPLEMENTATION_PROMPT_v2.md
+
+# --- Node / Astro build (Netlify installs & builds these itself) ---
+node_modules/
+dist/
+.astro/
+.netlify/
+
+# --- Secrets ---
+.env
+.env.*
+
+# --- Logs ---
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Python ---
+__pycache__/
+*.pyc
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+desktop.ini

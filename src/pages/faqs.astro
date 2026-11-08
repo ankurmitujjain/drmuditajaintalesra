@@ -1,0 +1,132 @@
+---
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import FAQ from '@/components/FAQ.astro';
+import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
+
+const title = "Gynecology FAQs | Dr. Mudita Jain Talesra Bhopal";
+const metaDescription = "Frequently asked questions about pregnancy, PCOS, laparoscopic surgery, fertility, menopause and clinic visits in Bhopal with Dr. Mudita Jain Talesra.";
+
+const generalFaqs = [
+  {
+    question: "What should I expect during my first gynecology visit with Dr. Mudita Jain Talesra?",
+    answer: "During your first consultation, Dr. Mudita will review your medical history, discuss your concerns in detail, conduct a gentle clinical examination if necessary, and advise on relevant diagnostic tests such as pelvic ultrasound or hormonal panels."
+  },
+  {
+    question: "Where is the clinic located in Bhopal?",
+    answer: "The clinic is located at E-8, Plot No. G-1/24-25, Gulmohar Colony, Bhopal, MP 462039, conveniently accessible from Shahpura, Trilanga, Arera Colony, and Kolar Road."
+  },
+  {
+    question: "What are the clinic consultation timings?",
+    answer: "In-person consultations are available Monday to Friday from 5:00 PM to 8:00 PM. WhatsApp inquiry assistance is accessible throughout the week."
+  },
+  {
+    question: "Do I need to visit a gynecologist every year?",
+    answer: "Yes. An annual preventative check-up is recommended for every adult woman. It provides routine screening for cervical health (Pap smear), breast examination, pelvic health assessment, and proactive counseling."
+  },
+  {
+    question: "When should I consult a gynecologist urgently?",
+    answer: "Seek immediate medical consultation if you experience severe sudden pelvic pain, very heavy vaginal bleeding with clots, foul-smelling vaginal discharge with fever, or positive pregnancy test accompanied by unilateral lower abdominal cramps."
+  },
+  {
+    question: "What are the common symptoms of PCOS (Polycystic Ovary Syndrome)?",
+    answer: "Common symptoms include irregular or missed periods, facial acne, excess facial/body hair growth (hirsutism), unexplained weight gain, and difficulty conceiving due to irregular ovulation."
+  },
+  {
+    question: "What are the advantages of keyhole laparoscopic surgery?",
+    answer: "Laparoscopic surgery uses 5–10 mm incisions instead of large open cuts, resulting in minimal blood loss, minimal scarring, significantly less postoperative pain, and rapid hospital discharge within 24 to 48 hours."
+  },
+  {
+    question: "How can menopause symptoms be managed effectively?",
+    answer: "Menopause transitions (hot flashes, night sweats, mood fluctuations, sleep disturbance, vaginal dryness) are managed through personalized lifestyle guidance, calcium and vitamin D3 bone protection, non-hormonal medical therapies, and carefully evaluated hormone therapy when clinically appropriate."
+  }
+];
+
+const faqSchema = {
+  '@type': 'FAQPage',
+  '@id': 'https://drmuditajaintalesra.com/faqs/#faq',
+  mainEntity: generalFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+};
+---
+
+<Base title={title} metaDescription={metaDescription} schema={faqSchema}>
+  <div class="page-container container">
+    <Breadcrumbs crumbs={[{ name: "FAQs", url: "/faqs/" }]} />
+
+    <header class="page-header text-center">
+      <span class="badge">Common Questions & Answers</span>
+      <h1>Frequently Asked Questions</h1>
+      <p class="lead">
+        Evidence-based answers to patient questions on women's health, pregnancy, fertility, and clinical procedures in Bhopal.
+      </p>
+    </header>
+
+    <div class="faqs-wrapper">
+      <FAQ faqs={generalFaqs} title="General Clinical & Health Inquiries" />
+
+      <div class="faq-cta-box text-center">
+        <h3>Have a Specific Question Not Listed Here?</h3>
+        <p>You can chat directly with Dr. Mudita Jain Talesra's clinic team on WhatsApp.</p>
+        <WhatsAppCTA title="General Medical Question" question="I have a question that was not listed on your FAQ page." slug="faqs-page" />
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .page-container {
+    padding: 30px 20px 60px 20px;
+    max-width: 860px;
+  }
+  .page-header {
+    margin-bottom: 40px;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .page-header h1 {
+    font-size: 34px;
+    color: #172b54;
+    margin-bottom: 10px;
+  }
+  .lead {
+    font-size: 16px;
+    color: #475569;
+  }
+  .faq-cta-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 40px;
+  }
+  .faq-cta-box h3 {
+    font-size: 20px;
+    color: #172b54;
+    margin-bottom: 8px;
+  }
+  .faq-cta-box p {
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 18px;
+  }
+</style>

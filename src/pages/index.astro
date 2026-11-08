@@ -1,0 +1,402 @@
+---
+import Base from '@/layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
+import CallCTA from '@/components/CallCTA.astro';
+import TrustBar from '@/components/TrustBar.astro';
+import { site } from '@/data/site';
+
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const blogs = (await getCollection('blog')).slice(0, 3);
+
+const title = "Dr. Mudita Jain Talesra | Gynecologist & Laparoscopic Surgeon Bhopal";
+const metaDescription = "Consult Dr. Mudita Jain Talesra (MS, FMAS, FICOG) in Gulmohar Colony, Bhopal. 17+ years experience in pregnancy care, laparoscopic surgery & women's health.";
+---
+
+<Base title={title} metaDescription={metaDescription}>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <span class="badge">Mudita Women Health Care Center · Bhopal</span>
+        <h1 class="hero-title">Gynecologist, Obstetrician & Laparoscopic Surgeon in Bhopal</h1>
+        <p class="hero-subtitle">
+          Led by <strong>{site.doctor.name}</strong> ({site.doctor.qualifications}). Over {site.doctor.experienceYears} years of compassionate clinical and surgical care for women at every stage of life.
+        </p>
+        <div class="hero-ctas">
+          <WhatsAppCTA title="Consultation" question="I would like to book an appointment with Dr. Mudita." slug="home-hero" />
+          <CallCTA />
+        </div>
+        <p class="hero-hours-note">
+          📍 Gulmohar Colony, Bhopal · ⏰ Clinic: {site.nap.hours.daysShort} · WhatsApp inquiries 24/7
+        </p>
+      </div>
+
+      <div class="hero-media">
+        <img
+          src="/images/clinic-exterior.webp"
+          alt="Mudita Women Health Care Center, Gulmohar Colony, Bhopal"
+          width="540"
+          height="360"
+          fetchpriority="high"
+          class="hero-img"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <TrustBar />
+
+  <!-- About Doctor Brief Section -->
+  <section class="doctor-brief-section">
+    <div class="container doctor-brief-grid">
+      <div class="doctor-brief-img-wrapper">
+        <img
+          src="/images/clinic-inauguration.webp"
+          alt="Dr. Mudita Jain Talesra Facility Inauguration"
+          width="480"
+          height="320"
+          loading="lazy"
+          class="doctor-img"
+        />
+      </div>
+      <div class="doctor-brief-content">
+        <span class="sub-badge">Senior Specialist Profile</span>
+        <h2>Meet Dr. Mudita Jain Talesra</h2>
+        <p class="doctor-creds">
+          <strong>{site.doctor.qualifications}</strong><br />
+          MPMC Registration No. <strong>{site.doctor.registrationNumber}</strong> · 17+ Years of Dedicated Service
+        </p>
+        <p>
+          Dr. Mudita Jain Talesra is a senior gynecologist, urogynaecologist, and minimal access surgeon. {site.doctor.formerRole}. She holds advanced fellowships in laparoscopic surgery (FMAS), reproductive medicine & infertility (FICOG, FMFI), and cosmetic gynecology.
+        </p>
+        <p>
+          Recognized as a <strong>National Master Trainer</strong> for HPV vaccination, Comprehensive Abortion Care (CAC), and subdermal contraception implants, she is committed to ethical, evidence-based healthcare.
+        </p>
+        <div class="brief-actions">
+          <a href="/about-us/" class="btn-secondary">Read Full Profile & Accreditations →</a>
+          <WhatsAppCTA title="Direct Consultation" question="I would like to consult Dr. Mudita." slug="home-about" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clinical Services Grid -->
+  <section class="services-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Specialized Women's Healthcare Services</h2>
+        <p>Comprehensive diagnostic, medical, and surgical treatments delivered with utmost privacy and care.</p>
+      </div>
+
+      <div class="services-grid">
+        {services.map((service) => (
+          <div class="service-card">
+            <h3 class="service-card-title">
+              <a href={`/${(service.id || service.slug)}/`}>{service.data.title}</a>
+            </h3>
+            <p class="service-card-desc">{service.data.directAnswer.slice(0, 140)}...</p>
+            <div class="service-card-footer">
+              <a href={`/${(service.id || service.slug)}/`} class="service-link">Learn More & FAQs →</a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="all-services-cta text-center">
+        <a href="/our-services/" class="btn-outline">Explore All Gynecology Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Medical Articles -->
+  <section class="blogs-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Evidence-Based Women's Health Articles</h2>
+        <p>Written and medically reviewed by Dr. Mudita Jain Talesra to answer patient questions.</p>
+      </div>
+
+      <div class="blogs-grid">
+        {blogs.map((post) => (
+          <article class="blog-card">
+            <a href={`/${(post.id || post.slug)}/`} class="blog-img-link">
+              <img src={post.data.image} alt={post.data.title} width="360" height="200" loading="lazy" class="blog-card-img" />
+            </a>
+            <div class="blog-card-body">
+              <span class="blog-date">{post.data.publishDate}</span>
+              <h3 class="blog-card-title">
+                <a href={`/${(post.id || post.slug)}/`}>{post.data.title}</a>
+              </h3>
+              <p class="blog-card-snippet">{post.data.directAnswer.slice(0, 120)}...</p>
+              <a href={`/${(post.id || post.slug)}/`} class="read-more">Read Medical Guide →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="all-blogs-cta text-center">
+        <a href="/blogs/" class="btn-outline">Browse All 8 Medical Articles →</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero-section {
+    padding: 60px 0 50px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .badge {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .hero-title {
+    font-size: 38px;
+    line-height: 1.2;
+    color: #172b54;
+    margin-bottom: 16px;
+    font-weight: 800;
+  }
+  .hero-subtitle {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #475569;
+    margin-bottom: 24px;
+  }
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .hero-hours-note {
+    font-size: 13px;
+    color: #64748b;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    object-fit: cover;
+  }
+
+  /* Doctor Brief Section */
+  .doctor-brief-section {
+    padding: 70px 0;
+  }
+  .doctor-brief-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+  }
+  .doctor-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  }
+  .sub-badge {
+    color: #0284c7;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .doctor-brief-content h2 {
+    font-size: 30px;
+    color: #172b54;
+    margin: 6px 0 12px 0;
+  }
+  .doctor-creds {
+    font-size: 15px;
+    color: #334155;
+    margin-bottom: 16px;
+    background: #f1f5f9;
+    padding: 10px 14px;
+    border-radius: 6px;
+    border-left: 3px solid #172b54;
+  }
+  .doctor-brief-content p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #475569;
+    margin-bottom: 14px;
+  }
+  .brief-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .btn-secondary {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #172b54;
+    color: #ffffff !important;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  /* Services Section */
+  .services-section {
+    padding: 60px 0;
+    background: #f8fafc;
+  }
+  .section-header {
+    max-width: 650px;
+    margin: 0 auto 40px auto;
+  }
+  .section-header h2 {
+    font-size: 30px;
+    color: #172b54;
+    margin-bottom: 8px;
+  }
+  .section-header p {
+    color: #64748b;
+    font-size: 15px;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  .service-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  }
+  .service-card-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .service-card-title a {
+    color: #172b54;
+  }
+  .service-card-desc {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .service-link {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0284c7;
+  }
+  .all-services-cta,
+  .all-blogs-cta {
+    margin-top: 35px;
+  }
+  .btn-outline {
+    display: inline-block;
+    padding: 10px 24px;
+    border: 2px solid #172b54;
+    color: #172b54;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .btn-outline:hover {
+    background: #172b54;
+    color: #ffffff !important;
+  }
+
+  /* Blogs */
+  .blogs-section {
+    padding: 70px 0;
+  }
+  .blogs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  .blog-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .blog-card-img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+  }
+  .blog-card-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .blog-date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-bottom: 6px;
+  }
+  .blog-card-title {
+    font-size: 17px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .blog-card-title a {
+    color: #172b54;
+  }
+  .blog-card-snippet {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    flex: 1;
+  }
+  .read-more {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0284c7;
+  }
+
+  @media (max-width: 800px) {
+    .hero-inner,
+    .doctor-brief-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-title {
+      font-size: 28px;
+    }
+  }
+</style>

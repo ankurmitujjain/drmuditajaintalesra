@@ -1,0 +1,31 @@
+{
+  "name": "drmuditajaintalesra",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankurmitujjain/drmuditajaintalesra.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ankurmitujjain/drmuditajaintalesra/issues"
+  },
+  "homepage": "https://github.com/ankurmitujjain/drmuditajaintalesra#readme",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.4.7"
+  }
+}

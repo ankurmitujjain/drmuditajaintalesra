@@ -1,0 +1,327 @@
+---
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
+import CallCTA from '@/components/CallCTA.astro';
+import { site } from '@/data/site';
+
+const title = "Contact Dr. Mudita Jain Talesra | Clinic in Gulmohar Bhopal";
+const metaDescription = "Get in touch with Dr. Mudita Jain Talesra in Gulmohar Colony, Bhopal. Phone, WhatsApp, directions and clinic appointment details.";
+---
+
+<Base title={title} metaDescription={metaDescription}>
+  <div class="page-container container">
+    <Breadcrumbs crumbs={[{ name: "Contact Us", url: "/contact-us/" }]} />
+
+    <header class="page-header">
+      <span class="badge">Consultation & Clinic Location</span>
+      <h1>Contact Mudita Women Health Care Center</h1>
+      <p class="lead">
+        Get in touch with <strong>{site.doctor.name}</strong> for expert obstetrics, gynecology, and laparoscopic consultation in Bhopal.
+      </p>
+    </header>
+
+    <div class="contact-grid">
+      <!-- Contact Info & Clinic Photo -->
+      <div class="contact-info">
+        <div class="info-card">
+          <img src="/images/clinic-exterior.webp" alt="Mudita Women Health Care Center Bhopal" width="400" height="240" class="clinic-photo" />
+
+          <h3>Clinic Address</h3>
+          <p class="address-text">
+            <strong>{site.clinicName}</strong><br />
+            {site.nap.address.street},<br />
+            {site.nap.address.locality}, (Near {site.nap.address.area})<br />
+            {site.nap.address.city}, {site.nap.address.state} – {site.nap.address.postalCode}
+          </p>
+
+          <div class="contact-methods">
+            <div class="method-item">
+              <span class="icon">💬</span>
+              <div>
+                <strong>WhatsApp (Appointments & Queries):</strong><br />
+                <a href={`https://wa.me/${site.nap.phones.whatsappRaw}`}>{site.nap.phones.whatsapp}</a>
+              </div>
+            </div>
+            <div class="method-item">
+              <span class="icon">📞</span>
+              <div>
+                <strong>Call Clinic Desk:</strong><br />
+                <a href={`tel:${site.nap.phones.callRaw}`}>{site.nap.phones.call}</a>
+              </div>
+            </div>
+            <div class="method-item">
+              <span class="icon">✉️</span>
+              <div>
+                <strong>Email Address:</strong><br />
+                <a href={`mailto:${site.nap.email}`}>{site.nap.email}</a>
+              </div>
+            </div>
+            <div class="method-item">
+              <span class="icon">⏰</span>
+              <div>
+                <strong>Consultation Hours:</strong><br />
+                {site.nap.hours.days}: {site.nap.hours.time}<br />
+                <small style="color: #64748b;">{site.nap.hours.weekend}</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-actions">
+            <a href={site.nap.mapsCidUrl} target="_blank" rel="noopener" class="btn-map">📍 Open in Google Maps</a>
+            <a href={site.nap.reviewUrl} target="_blank" rel="noopener" class="btn-review">⭐ Leave a Google Review</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Netlify Booking Form -->
+      <div class="contact-form-wrapper">
+        <div class="form-card">
+          <h2>Send an Appointment Request</h2>
+          <p class="form-sub">Fill in your details below or chat instantly with our clinic desk on WhatsApp.</p>
+
+          <div class="quick-wa-banner">
+            <WhatsAppCTA title="Direct Clinic Contact" question="Hello Dr. Mudita, I would like to book a consultation." slug="contact-instant" />
+          </div>
+
+          <hr class="form-divider" />
+
+          <form
+            name="appointment-inquiry"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            action="/contact-us/?success=true"
+            class="booking-form"
+          >
+            <input type="hidden" name="form-name" value="appointment-inquiry" />
+            <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+            <div class="form-group">
+              <label for="name">Your Full Name *</label>
+              <input type="text" id="name" name="name" required placeholder="Enter your full name" />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone / WhatsApp Number *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="e.g. +91 98765 43210" />
+            </div>
+
+            <div class="form-group">
+              <label for="service">Service or Health Concern</label>
+              <select id="service" name="service">
+                <option value="General Gynecology Consultation">General Gynecology Consultation</option>
+                <option value="Pregnancy & Antenatal Care">Pregnancy & Antenatal Care</option>
+                <option value="Laparoscopic Surgery Consultation">Laparoscopic Surgery Consultation</option>
+                <option value="Infertility & IUI Evaluation">Infertility & IUI Evaluation</option>
+                <option value="Cosmetic Gynecology">Cosmetic Gynecology</option>
+                <option value="Pap Smear / HPV Vaccine">Pap Smear / HPV Vaccine</option>
+                <option value="Vaginal Surgery / Prolapse">Vaginal Surgery / Prolapse</option>
+                <option value="Confidential MTP Inquiry">Confidential MTP Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="preferred-time">Preferred Appointment Day</label>
+              <select id="preferred-time" name="preferred-time">
+                <option value="Monday (5-8 PM)">Monday (5:00 PM – 8:00 PM)</option>
+                <option value="Tuesday (5-8 PM)">Tuesday (5:00 PM – 8:00 PM)</option>
+                <option value="Wednesday (5-8 PM)">Wednesday (5:00 PM – 8:00 PM)</option>
+                <option value="Thursday (5-8 PM)">Thursday (5:00 PM – 8:00 PM)</option>
+                <option value="Friday (5-8 PM)">Friday (5:00 PM – 8:00 PM)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Brief Health Concern / Message</label>
+              <textarea id="message" name="message" rows="3" placeholder="Tell us how we can help you..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Submit Appointment Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .page-container {
+    padding: 30px 20px 60px 20px;
+  }
+  .page-header {
+    margin-bottom: 40px;
+  }
+  .badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .page-header h1 {
+    font-size: 34px;
+    color: #172b54;
+    margin-bottom: 10px;
+  }
+  .lead {
+    font-size: 16px;
+    color: #475569;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  /* Info Card */
+  .info-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .clinic-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  .info-card h3 {
+    font-size: 18px;
+    color: #172b54;
+    margin-bottom: 8px;
+  }
+  .address-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #334155;
+    margin-bottom: 20px;
+  }
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .method-item {
+    display: flex;
+    gap: 12px;
+    font-size: 14px;
+    color: #334155;
+  }
+  .method-item .icon {
+    font-size: 20px;
+  }
+  .method-item a {
+    color: #172b54;
+    font-weight: 600;
+  }
+  .info-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .btn-map,
+  .btn-review {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+  .btn-map {
+    background: #172b54;
+    color: #ffffff !important;
+  }
+  .btn-review {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #1e293b;
+  }
+
+  /* Form Card */
+  .form-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  }
+  .form-card h2 {
+    font-size: 22px;
+    color: #172b54;
+    margin-bottom: 8px;
+  }
+  .form-sub {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 20px;
+  }
+  .quick-wa-banner {
+    margin-bottom: 20px;
+  }
+  .form-divider {
+    border: 0;
+    border-top: 1px solid #f1f5f9;
+    margin: 20px 0;
+  }
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .hidden {
+    display: none;
+  }
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 6px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  .form-group select {
+    background: #ffffff;
+  }
+  .btn-submit {
+    background: #172b54;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-top: 6px;
+  }
+  .btn-submit:hover {
+    background: #0f1d38;
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

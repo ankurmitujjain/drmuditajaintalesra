@@ -1,0 +1,124 @@
+---
+import { site } from '@/data/site';
+---
+
+<div class="doctor-author-box">
+  <div class="author-image-wrapper">
+    <img
+      src="/images/logo.png"
+      alt={site.doctor.name}
+      width="80"
+      height="80"
+      loading="lazy"
+      class="author-img"
+    />
+  </div>
+  <div class="author-bio">
+    <span class="review-badge">Medically Reviewed & Written By</span>
+    <h3 class="author-name">{site.doctor.name}</h3>
+    <p class="author-creds">
+      <strong>{site.doctor.qualifications}</strong> · MPMC Reg. {site.doctor.registrationNumber} · {site.doctor.experienceYears} Years Experience
+    </p>
+    <p class="author-desc">
+      Dr. Mudita Jain Talesra is a senior gynecologist, obstetrician, and laparoscopic surgeon based in Gulmohar Colony, Bhopal. {site.doctor.formerRole}.
+    </p>
+    <div class="author-actions">
+      <a href="/about-us/" class="author-link">View Full Profile & Credentials →</a>
+      <a
+        href={`https://wa.me/${site.nap.phones.whatsappRaw}?text=${encodeURIComponent("Hello Dr. Mudita, I have a medical query after reading your article.")}`}
+        target="_blank"
+        rel="noopener"
+        class="wa-chat-link"
+      >
+        💬 Ask Dr. Mudita on WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .doctor-author-box {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 40px 0;
+  }
+  .author-image-wrapper {
+    flex-shrink: 0;
+  }
+  .author-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: contain;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    padding: 4px;
+  }
+  .author-bio {
+    flex: 1;
+  }
+  .review-badge {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+  .author-name {
+    font-size: 18px;
+    color: #172b54;
+    margin: 0 0 4px 0;
+  }
+  .author-creds {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0 0 8px 0;
+  }
+  .author-desc {
+    font-size: 14px;
+    color: #334155;
+    line-height: 1.5;
+    margin: 0 0 12px 0;
+  }
+  .author-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+  }
+  .author-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: #172b54;
+    text-decoration: underline;
+  }
+  .wa-chat-link {
+    font-size: 13px;
+    font-weight: 700;
+    color: #15803d;
+    text-decoration: none;
+  }
+  .wa-chat-link:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 600px) {
+    .doctor-author-box {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .author-actions {
+      justify-content: center;
+    }
+  }
+</style>
