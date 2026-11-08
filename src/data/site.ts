@@ -16,7 +16,7 @@ export const site = {
     honorificPrefix: "Dr.",
     gender: "Female",
     qualifications: "MBBS, MS (Obstetrics & Gynaecology), FMAS, FICOG",
-    additionalFellowships: "FMFI (Fetal Medicine & Infertility), Master's in Cosmetic Gynecology",
+    additionalFellowships: "FMFI, Master's in Cosmetic Gynecology",
     experienceYears: "17+",
     councilRegistration: "Madhya Pradesh Medical Council",
     registrationNumber: "MP-8475",

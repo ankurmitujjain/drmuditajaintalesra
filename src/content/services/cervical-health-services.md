@@ -10,7 +10,7 @@ keywords:
   - hpv vaccine doctor bhopal
   - hpv vaccination clinic bhopal
   - abnormal pap smear treatment bhopal
-heroImage: /images/clinic-exterior.webp
+heroImage: /images/cervical-health-services.webp
 order: 5
 faqs:
   - question: At what age should a woman begin routine Pap smear screening?

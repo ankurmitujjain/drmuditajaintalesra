@@ -10,7 +10,7 @@ keywords:
   - ndvh surgeon bhopal
   - uterine prolapse treatment bhopal
   - pelvic organ prolapse doctor bhopal
-heroImage: /images/clinic-exterior.webp
+heroImage: /images/vaginal-surgery-services.webp
 order: 6
 faqs:
   - question: What is Non-Descent Vaginal Hysterectomy (NDVH)?

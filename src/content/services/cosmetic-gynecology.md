@@ -10,7 +10,7 @@ keywords:
   - labiaplasty surgeon bhopal
   - vaginal tightening bhopal
   - intimate wellness doctor bhopal
-heroImage: /images/masters-cosmetic-gynecology.webp
+heroImage: /images/cosmetic-gynecology.webp
 order: 4
 faqs:
   - question: What is the difference between aesthetic and functional cosmetic gynecology?

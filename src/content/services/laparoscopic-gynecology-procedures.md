@@ -10,7 +10,7 @@ keywords:
   - laparoscopic hysterectomy bhopal
   - laparoscopic myomectomy bhopal
   - ovarian cyst laparoscopy bhopal
-heroImage: /images/laparoscopic-fibroid-surgery.webp
+heroImage: /images/laparoscopic-gynecology-procedures.webp
 youtubeId: 58-cMewGz2k
 order: 1
 faqs:

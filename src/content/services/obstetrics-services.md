@@ -10,7 +10,7 @@ keywords:
   - high risk pregnancy specialist bhopal
   - normal delivery doctor bhopal
   - antenatal checkup gulmohar bhopal
-heroImage: /images/clinic-exterior.webp
+heroImage: /images/obstetrics-services.webp
 youtubeId: tG9c0uY3a2o
 order: 2
 faqs:

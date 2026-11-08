@@ -1,16 +1,16 @@
 ---
 title: Comprehensive Infertility Evaluation & Treatment in Bhopal
 metaTitle: Infertility Evaluation & IUI Guidance | Dr. Mudita Jain Bhopal
-metaDescription: Evidence-based female and male fertility workup, ovulation induction, follicular monitoring, and IUI treatment in Bhopal by Dr. Mudita Jain Talesra (FMFI).
+metaDescription: Evidence-based female and male fertility workup, ovulation induction, follicular monitoring, and IUI treatment in Bhopal by Dr. Mudita Jain Talesra, MS (OBG), FICOG.
 h1: Comprehensive Infertility Evaluation & Treatment in Bhopal
-directAnswer: Infertility care encompasses a systematic diagnostic workup of both partners to identify underlying ovulatory, tubal, uterine, or male sperm factors preventing conception. With advanced fellowship credentials in Fetal Medicine & Infertility (FMFI), Dr. Mudita Jain Talesra provides transparent, stepwise clinical fertility care ranging from lifestyle optimization and medical ovulation induction to intrauterine insemination (IUI).
+directAnswer: Infertility care encompasses a systematic diagnostic workup of both partners to identify underlying ovulatory, tubal, uterine, or male sperm factors preventing conception. With FOGSI-recognised infertility training, Dr. Mudita Jain Talesra provides transparent, stepwise clinical fertility care ranging from lifestyle optimization and medical ovulation induction to intrauterine insemination (IUI).
 keywords:
   - infertility treatment bhopal
   - iui treatment doctor bhopal
   - ovulation induction bhopal
   - low amh pregnancy bhopal
   - fallopian tube test bhopal
-heroImage: /images/clinic-exterior.webp
+heroImage: /images/fertility-services.webp
 youtubeId: hyj3d1XdEBw
 order: 3
 faqs:
@@ -31,7 +31,7 @@ reviewedDate: "2026-11-08"
 
 Conceiving a child should be a joyful hope, not an overwhelming medical maze. Yet across urban India, changing lifestyle patterns, delayed marriage age, environmental stresses, and conditions such as Polycystic Ovary Syndrome (PCOS) have contributed to an increasing prevalence of subfertility, affecting approximately one in six couples.
 
-At **Mudita Women Health Care Center** in Gulmohar Colony, Bhopal, **Dr. Mudita Jain Talesra** provides structured, evidence-based, and compassionate fertility care. Holding an advanced Fellowship in Fetal Medicine & Female Infertility (FMFI), Dr. Mudita believes in an individualized, ethical approach: conducting a thorough diagnostic investigation first, rather than rushing couples into expensive or unnecessary high-tech procedures.
+At **Mudita Women Health Care Center** in Gulmohar Colony, Bhopal, **Dr. Mudita Jain Talesra** provides structured, evidence-based, and compassionate fertility care. With FOGSI-recognised infertility training, Dr. Mudita believes in an individualized, ethical approach: conducting a thorough diagnostic investigation first, rather than rushing couples into expensive or unnecessary high-tech procedures.
 
 ---
 
