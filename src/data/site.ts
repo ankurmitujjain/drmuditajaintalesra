@@ -137,7 +137,7 @@ export const site = {
   },
 
   analytics: {
-    gtmId: "GTM-KTNGJW3Z",
+    gtmId: "GTM-K822L3GR",
     ga4Id: "G-R45CXSB5JJ",
   },
 };
