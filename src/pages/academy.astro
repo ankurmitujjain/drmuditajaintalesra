@@ -59,10 +59,26 @@ const courses = [
       <div class="faculty-details">
         <h3>Led by Dr. Mudita Jain Talesra</h3>
         <p>
-          MBBS, MS (Obstetrics & Gynaecology), FMAS, FICOG · <strong>Former Professor & HOD</strong> at RKDF Medical College, Bhopal. With over 17 years of surgical and teaching experience, Dr. Mudita has mentored hundreds of undergraduate and postgraduate medical residents.
+          MBBS, MS (Obstetrics & Gynaecology), FMAS, FICOG · <strong>Former Professor & HOD</strong> at RKDF Medical College, Bhopal. With over 17 years of surgical and teaching experience, Dr. Mudita has taught and mentored undergraduate and postgraduate students as faculty, and now runs hands-on surgical training for gynaecologists.
         </p>
       </div>
     </div>
+
+    <!-- Flagship: running now -->
+    <section class="flagship">
+      <img src="/images/ndvh-training-ot-team.webp" alt="Dr. Mudita Jain Talesra with an NDVH trainee and the operating theatre team" width="1280" height="960" loading="eager" />
+      <div class="flagship-body">
+        <span class="live-badge">Now running · In-person · Bhopal</span>
+        <h2>Hands-on NDVH / Vaginal Hysterectomy Training</h2>
+        <ul>
+          <li>Every step taught together with the surgical anatomy</li>
+          <li>Supervised hands-on operating, including difficult cases (previous CS, multiple fibroids)</li>
+          <li>Certificate on completion; travel, stay and food arranged</li>
+        </ul>
+        <p class="flagship-quote">“She taught each and every step with anatomy… I recommend this NDVH/VH training to gynaecologists who want to improve their surgical skills.” <span>Dr. Neelam Raghuwanshi, Gynaecologist</span></p>
+        <a href="/academy/ndvh-training/" class="btn-flagship">See training details &amp; reviews →</a>
+      </div>
+    </section>
 
     <!-- Free YouTube Vault & WhatsApp Learning Community -->
     <div class="vault-highlight-card">
@@ -93,14 +109,14 @@ const courses = [
       {
         courses.map((course) => (
           <div class="academy-card">
-            <span class="course-badge">{course.badge}</span>
+            <span class="course-badge">{course.badge}</span> <span class="soon-badge">Coming soon</span>
             <h3>{course.title}</h3>
             <p class="course-format"><strong>Format:</strong> {course.format}</p>
             <p class="course-desc">{course.desc}</p>
             <div class="card-footer">
               <WhatsAppCTA
                 title={`Enroll in ${course.title.split('(')[0]}`}
-                question={`Hello Dr. Mudita, I am an OBG student/resident interested in the ${course.title.split('(')[0].trim()}. Please share the syllabus and next batch details. [${course.orderCode}]`}
+                question={`Hello Dr. Mudita, I am an OBG student/resident interested in the upcoming ${course.title.split('(')[0].trim()}. Please notify me when it launches. [${course.orderCode}]`}
                 slug={`academy-${course.orderCode}`}
               />
             </div>
@@ -151,6 +167,26 @@ const courses = [
     color: #475569;
     max-width: 800px;
   }
+  .flagship {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 0;
+    background: #ffffff;
+    border: 2px solid #14b8a6;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+  .flagship img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .flagship-body { padding: 24px; }
+  .live-badge { background: #dcfce7; color: #166534; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; text-transform: uppercase; }
+  .flagship-body h2 { font-size: 22px; color: #172b54; margin: 10px 0; }
+  .flagship-body ul { padding-left: 18px; color: #334155; font-size: 14px; line-height: 1.7; }
+  .flagship-quote { font-style: italic; color: #475569; font-size: 14px; border-left: 3px solid #14b8a6; padding-left: 12px; }
+  .flagship-quote span { display: block; font-style: normal; font-weight: 600; margin-top: 4px; }
+  .btn-flagship { display: inline-block; background: #172b54; color: #fff !important; font-weight: 700; font-size: 14px; padding: 10px 18px; border-radius: 6px; text-decoration: none; margin-top: 6px; }
+  .soon-badge { background: #fef3c7; color: #92400e; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; }
+  @media (max-width: 720px) { .flagship { grid-template-columns: 1fr; } }
   .faculty-banner {
     display: flex;
     gap: 20px;

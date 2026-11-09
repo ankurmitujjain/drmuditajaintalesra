@@ -1,0 +1,221 @@
+---
+import Base from '@/layouts/Base.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import WhatsAppCTA from '@/components/WhatsAppCTA.astro';
+import FAQ from '@/components/FAQ.astro';
+import { site } from '@/data/site';
+
+const url = `${site.domain}/academy/ndvh-training/`;
+const title = 'Hands-on NDVH / Vaginal Hysterectomy Training in Bhopal';
+const metaDescription =
+  'Hands-on NDVH and vaginal hysterectomy training for gynaecologists in Bhopal with Dr. Mudita Jain Talesra: anatomy-led, step-by-step, in the operating theatre. Certificate provided.';
+
+const enrolMsg =
+  "Hello Dr. Mudita, I'm a gynaecologist interested in the NDVH / vaginal hysterectomy hands-on training. Please share the next batch dates and details. [ndvh-training]";
+
+const faqs = [
+  {
+    question: 'Who is the NDVH training for?',
+    answer:
+      'Practising gynaecologists and OBG postgraduates who want to build confidence and skill in non-descent vaginal hysterectomy (NDVH) and vaginal hysterectomy (VH).',
+  },
+  {
+    question: 'Is the training hands-on?',
+    answer:
+      'Yes. Trainees learn each step together with the relevant surgical anatomy and get hands-on exposure in the operating theatre under the direct supervision of Dr. Mudita Jain Talesra.',
+  },
+  {
+    question: 'Will I see difficult cases?',
+    answer:
+      'Past trainees have operated on challenging cases such as patients with a previous caesarean section and uteri with multiple fibroids, under supervision. Case mix depends on each batch.',
+  },
+  {
+    question: 'Is a certificate provided?',
+    answer: 'Yes. Every trainee who completes the workshop receives an NDVH Workshop certificate.',
+  },
+  {
+    question: 'Are travel, stay and food arranged?',
+    answer:
+      'Yes. The training coordinator, Dr. Pushpa, helps arrange accommodation, food and other logistics so trainees can focus on learning.',
+  },
+  {
+    question: 'How do I enrol, and what are the dates and fees?',
+    answer:
+      'Message us on WhatsApp. We share the next batch dates, duration and details in the chat. Once your seat is confirmed, payment is made by UPI to the same number. Please do not pay before confirmation.',
+  },
+];
+
+const schema = [
+  {
+    '@type': 'Course',
+    '@id': `${url}#course`,
+    name: 'Hands-on NDVH / Vaginal Hysterectomy Training',
+    description:
+      'Anatomy-led, step-by-step, hands-on training in non-descent vaginal hysterectomy (NDVH) and vaginal hysterectomy for gynaecologists, in the operating theatre under the supervision of Dr. Mudita Jain Talesra.',
+    url,
+    inLanguage: ['en', 'hi'],
+    provider: { '@id': `${site.domain}/#doctor` },
+    educationalCredentialAwarded: 'NDVH Workshop Certificate',
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      courseMode: 'onsite',
+      location: { '@id': `${site.domain}/#clinic` },
+      instructor: { '@id': `${site.domain}/#doctor` },
+    },
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${url}#faq`,
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  },
+];
+---
+
+<Base title={title} metaDescription={metaDescription} ogImage={`${site.domain}/images/ndvh-training-ot-team.webp`} schema={schema}>
+  <div class="page container">
+    <Breadcrumbs crumbs={[{ name: 'Academy for Students', url: '/academy/' }, { name: 'NDVH Training', url: '/academy/ndvh-training/' }]} />
+
+    <header class="hero">
+      <span class="badge live">Now running · In-person · Bhopal</span>
+      <h1>{title}</h1>
+      <p class="answer">
+        A hands-on surgical workshop for gynaecologists in <strong>non-descent vaginal hysterectomy (NDVH)</strong> and
+        vaginal hysterectomy, led by <strong>Dr. Mudita Jain Talesra</strong> (MS OBG, FMAS, FICOG). Every step is taught
+        together with the surgical anatomy, with supervised hands-on work in the operating theatre, including difficult
+        cases, and a certificate on completion.
+      </p>
+      <div class="cta-row">
+        <WhatsAppCTA title="NDVH training" question={enrolMsg} />
+        <a class="link" href="/how-to-book/">How booking works →</a>
+      </div>
+    </header>
+
+    <figure class="hero-img">
+      <img
+        src="/images/ndvh-training-ot-team.webp"
+        alt="Dr. Mudita Jain Talesra with an NDVH trainee and the operating theatre team"
+        width="1280"
+        height="960"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </figure>
+
+    <section>
+      <h2>Why learn NDVH?</h2>
+      <p>
+        Vaginal hysterectomy removes the uterus through the vagina, with no abdominal incision. For suitable patients it
+        usually means less pain, a shorter hospital stay and a faster return to daily life. It also needs little
+        expensive equipment, which makes it a valuable skill for gynaecologists in every setting. Many surgeons are
+        comfortable with vaginal hysterectomy for prolapse, but hesitate when the uterus has not descended (NDVH),
+        is enlarged, or the patient has had a previous caesarean section. Structured, supervised training closes that gap.
+      </p>
+    </section>
+
+    <section>
+      <h2>What the training covers</h2>
+      <ul class="ticks">
+        <li><strong>Anatomy-led teaching:</strong> each surgical step is explained together with the pelvic anatomy behind it.</li>
+        <li><strong>Hands-on in the operating theatre:</strong> supervised operating, not just observation.</li>
+        <li><strong>Difficult-case exposure:</strong> past trainees have operated on cases such as previous caesarean section and multiple fibroids.</li>
+        <li><strong>Practical insights:</strong> patient selection, technique tips and complication avoidance from an experienced vaginal and laparoscopic surgeon.</li>
+        <li><strong>Supportive team:</strong> experienced OT staff and anaesthesiologists.</li>
+        <li><strong>Certificate:</strong> an NDVH Workshop certificate on completion.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Who should join?</h2>
+      <p>
+        Practising gynaecologists and OBG postgraduates who want to start, or grow, a vaginal surgery practice and build
+        confidence with non-descent and more challenging cases.
+      </p>
+    </section>
+
+    <section>
+      <h2>Travel, stay and food taken care of</h2>
+      <p>
+        Training coordinator <strong>Dr. Pushpa</strong> helps arrange accommodation, food, refreshments and other
+        logistics, so trainees coming from outside Bhopal can focus entirely on learning.
+      </p>
+    </section>
+
+    <section>
+      <h2>What trainees say</h2>
+      <div class="reviews">
+        <article class="review">
+          <figure>
+            <img src="/images/ndvh-training-certificate.webp" alt="Dr. Mudita Jain Talesra and Dr. Pushpa presenting an NDVH workshop certificate to a trainee" width="1280" height="720" loading="lazy" />
+          </figure>
+          <blockquote>
+            “I had finished my NDVH/VH training under Mudita Ma'am recently. It was an excellent and highly enriching
+            experience. Her expertise, guidance, and professional approach made the training extremely informative and
+            valuable. She taught each and every step with anatomy. The hands-on exposure and practical insights provided
+            during the training significantly enhanced my knowledge and skills… I recommend this NDVH/VH training to
+            gynaecologists who want to improve their surgical skills.”
+          </blockquote>
+          <p class="who"><strong>Dr. Neelam Raghuwanshi</strong> · Gynaecologist, NDVH/VH training participant</p>
+        </article>
+        <article class="review">
+          <figure>
+            <img src="/images/ndvh-training-certificates-two-trainees.webp" alt="Two trainee gynaecologists receiving NDVH workshop certificates" width="900" height="928" loading="lazy" />
+          </figure>
+          <blockquote>
+            “Would like to thank Dr. Mudita Ma'am and Dr. Pushpa Ma'am for an incredible experience at the NDVH training.
+            The training and all the travel, stay and food logistics were very well taken care of. Did some difficult
+            cases like previous CS and multiple fibroids… Definitely made me confident in this particular genre of surgery.”
+          </blockquote>
+          <p class="who"><strong>Gynaecologist</strong> · NDVH training participant</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="faculty">
+      <h2>Your trainer</h2>
+      <p>
+        <strong>Dr. Mudita Jain Talesra</strong>, MBBS, MS (Obstetrics &amp; Gynaecology), FMAS, FICOG, Master's in
+        Reconstructive &amp; Cosmetic Gynaecology. MP Medical Council Reg. MP-8475. 17+ years of surgical experience;
+        former Professor &amp; HOD (OBG), RKDF Medical College, Bhopal; life member of WALS, IMS, BOGS and IMA; faculty
+        at FORCE PG Update and many CMEs. <a href="/about-us/">Full profile →</a>
+      </p>
+    </section>
+
+    <section class="enrol">
+      <h2>Join the next batch</h2>
+      <p>Message us on WhatsApp for batch dates, duration and details. Seats are confirmed in the chat. Please pay only after confirmation.</p>
+      <WhatsAppCTA title="NDVH training" question={enrolMsg} />
+    </section>
+
+    <FAQ faqs={faqs} />
+  </div>
+</Base>
+
+<style>
+  .page { padding: 30px 20px 60px; max-width: 900px; }
+  .badge { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; display: inline-block; margin-bottom: 10px; }
+  .badge.live { background: #dcfce7; color: #166534; }
+  h1 { font-size: 32px; line-height: 1.25; color: #172b54; margin-bottom: 14px; }
+  h2 { font-size: 22px; color: #172b54; margin: 32px 0 10px; }
+  .answer { font-size: 17px; color: #334155; line-height: 1.7; background: #f0fdfa; border-left: 4px solid #14b8a6; padding: 14px 18px; border-radius: 8px; }
+  .cta-row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin-top: 18px; }
+  .link { color: #0369a1; font-weight: 600; }
+  .hero-img { margin: 26px 0 0; border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 3; }
+  .hero-img img, .review img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  section p, section li { color: #334155; line-height: 1.7; }
+  .ticks { padding-left: 20px; }
+  .ticks li { margin-bottom: 8px; }
+  .reviews { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .review { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
+  .review figure { margin: 0; aspect-ratio: 4 / 3; }
+  .review blockquote { margin: 0; padding: 18px 18px 8px; font-style: italic; color: #334155; line-height: 1.65; }
+  .review .who { padding: 0 18px 18px; margin: 0; font-size: 14px; color: #475569; }
+  .faculty, .enrol { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 4px 22px 20px; margin-top: 32px; }
+  @media (max-width: 720px) {
+    h1 { font-size: 26px; }
+    .reviews { grid-template-columns: 1fr; }
+  }
+</style>

@@ -71,3 +71,10 @@
 - [ ] **Host First Live Stream:** Conduct a 45-minute live stream "Ask Dr. Mudita Anything: Pregnancy & Women's Health" on the patient channel.
 - [ ] **Review Teleconsultation Funnel:** Evaluate inbound WhatsApp lead conversions and patient geographic distribution across Madhya Pradesh.
 - [ ] **Academic Channel Watch Hours:** Track rolling 12-month watch hours on `@DrMuditaJainVault` toward YPP 4,000-hour eligibility.
+
+## Academy: NDVH workshop track
+- [ ] Confirm consent from trainees and OT staff for the photos and reviews on /academy/ndvh-training/
+- [ ] Get the Review 2 author's name and Dr. Pushpa's full name for the credits
+- [ ] Fix the next NDVH batch date and announce it in the student WhatsApp community
+- [ ] After the batch: collect reviews and photos and update the page (see the academy plan routine)
+- [ ] Record the first 4 "pelvic anatomy for vaginal surgery" lessons for the Google Classroom pre-course

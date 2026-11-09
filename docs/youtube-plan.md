@@ -157,3 +157,62 @@ Operative surgical footage must adhere to YouTube's graphic content guidelines:
 23. Episiotomy Repair: Anatomy of the Perineal Body
 24. VBAC Trial of Labor: Selecting the Ideal Candidate
 25. Ruptured Ectopic: Fluid Resuscitation & Emergency Hemostasis
+
+---
+
+## UPDATE (8 Nov 2026): Product #1 is the live, in-person NDVH workshop
+Dr. Mudita **already runs hands-on NDVH / vaginal hysterectomy training** in Bhopal. It's the academy's proven flagship, and everything else should feed it.
+
+**What's proven (from trainee reviews):**
+- anatomy-led, step-by-step teaching
+- supervised hands-on operating
+- difficult cases (previous CS, multiple fibroids)
+- certificate
+- logistics (travel, stay, food) handled by coordinator Dr. Pushpa
+- Trainees say it made them confident and recommend it to other gynaecologists.
+
+**Web page:** `/academy/ndvh-training/` (live), featured at the top of `/academy/`. WhatsApp code `[ndvh-training]`.
+
+### The funnel around the workshop
+1. **Free (YouTube Vault + student WhatsApp community):** short de-identified "one step + its anatomy" clips from each batch (with patient consent), and a monthly free live "Vaginal surgery Q&A".
+2. **Low-ticket online pre-course (Google Classroom):** "Pelvic anatomy for vaginal surgery", 4–6 recorded lessons. Completing it is recommended before the workshop.
+3. **Flagship:** the in-person NDVH workshop (batch-based).
+4. **Next workshops on the same model:** TLH and laparoscopic myomectomy (both currently "Coming soon" on the site).
+5. **After the workshop:** a WhatsApp alumni group for case discussion, and a discount or priority seat for the next workshop.
+
+### After every batch (routine)
+- [ ] Collect a written review on WhatsApp from each trainee, plus **written consent** to use their name and photo.
+- [ ] Take 2–3 photos: OT team, certificate handover. Avoid patients and hospital branding.
+- [ ] Add the new review and photo to `/academy/ndvh-training/` (ask Claude).
+- [ ] Post a certificate-day photo plus a short quote on Instagram, Facebook and the YouTube Vault community tab with the `[ndvh-training]` WhatsApp link.
+- [ ] Ask trainees to share the post in their OBG groups (word of mouth is the main organic channel).
+- [ ] Announce the next batch date in the student WhatsApp community.
+
+### Data to collect, so the page can say more (without inventing)
+Typical duration, batch size, average cases per trainee, number of batches run, cities trainees came from. Once known, add them to the page.
+
+---
+
+## Competitor note: Dr. R. K. Mishra (@DRRKMishra), added 8 Nov 2026
+**Who:** Dr. R. K. Mishra, World Laparoscopy Hospital (WLH), Gurugram. A large, long-established **laparoscopic** training institute with paid fellowships and an extensive video and lecture library (TLH, LAVH, general laparoscopy). Public search turned up no NDVH-specific workshop from him.
+
+**Don't compete head-on on breadth of laparoscopy.** Compete where we're stronger and more specific:
+
+| | WLH / Dr. Mishra | Dr. Mudita (our position) |
+|---|---|---|
+| Focus | Laparoscopy (general + gynae), large institute | **Vaginal surgery: NDVH/VH**, gynae-only, surgeon-led |
+| Format | Large fellowships, mass online library | **Small-batch, hands-on, supervised operating** incl. difficult cases |
+| Teacher | Male general laparoscopic surgeon | **Woman gynaecologic surgeon**, former Professor & HOD |
+| Language | English | **Hindi + English**, for central and north Indian gynaecologists |
+| Location | Gurugram | **Bhopal**: central India, lower travel and stay cost; logistics arranged |
+
+**Content moves for @DrMuditaJainVault:**
+1. **Own the "NDVH" keyword space.** A playlist "NDVH Step by Step" with one video per step plus its anatomy (de-identified, consented): "NDVH in previous caesarean", "NDVH with multiple fibroids / enlarged uterus", "Morcellation and bisection techniques in NDVH", "Avoiding bladder injury in NDVH", "NDVH vs TLH: which and when".
+2. **Titles in English with Hindi in the description/voice** (e.g. "NDVH in Previous CS: Step by Step | Hindi"). Many competitors are English-only.
+3. **Trainee stories:** 60-second clips of trainees describing the workshop (with consent). Social proof is the one thing a library can't copy.
+4. **Weekly Shorts:** "1 step, 1 anatomy pearl" for vaginal surgery.
+5. **Each video's description:** a link to `/academy/ndvh-training/`, the `[ndvh-training]` WhatsApp link and the student WhatsApp community.
+6. **Collaborate, don't attack:** guest sessions with BOGS / AMPOGS / FOGSI societies, CMEs and medical colleges. Never name or criticise competitors on the website or in videos (NMC professional conduct).
+7. **Later:** a TLH workshop. Position it as "for gynaecologists who already do VH" (vaginal + laparoscopic complementary skills), not as a general laparoscopy fellowship.
+
+**Ethics:** don't reuse or re-upload any competitor footage. Use only our own consented, de-identified videos.

@@ -57,3 +57,5 @@ Pelvic organ prolapse (बच्चेदानी का बाहर आना
 | **Hospital Stay** | 24 to 48 hours | 4 to 7 days |
 | **Paralytic Ileus Risk** | Extremely low (minimal bowel disturbance) | Higher due to peritoneal air exposure |
 | **Cosmetic Outcome** | Pristine; zero visible surgical scar | Permanent abdominal scar line |
+
+> **For gynaecologists:** Dr. Mudita Jain Talesra also trains surgeons in NDVH and vaginal hysterectomy. See the [Hands-on NDVH Training](/academy/ndvh-training/).
